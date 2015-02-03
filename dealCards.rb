@@ -2,7 +2,7 @@
 
 function dealCards
 
-param: cardDeck
+param: cardDeck[]
     array containing the current deck of cards
 
 returns: an array containing the cards that are currently in play
