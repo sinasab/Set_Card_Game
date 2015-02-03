@@ -10,7 +10,8 @@
 ## Contributions
 Please list who did what for each part of the project, and if anyone [pair programmed](http://en.wikipedia.org/wiki/Pair_programming) in this section.
 
-* Roman: Created class for card elements
+* Roman: Created class for card elements. Started Player class. Function for creating deck (Sina helped
+         getting it to work properly).
 
 * Sina:
 
