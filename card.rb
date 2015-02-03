@@ -49,10 +49,7 @@ class Card
 
 end
 
-shadeArray = ["solid", "striped","open"]
-numberArray = [1,2,3]
-shapeArray = ["diamond", "squiggle", "oval"]
-colorArray = ["red", "green", "purple"]
+
 
 
 =begin
@@ -76,6 +73,12 @@ It then adds the card to an array, which will be returned.
 	   deck: An array that is a deck of SET! cards.
 =end
 def makeDeck(shadeArray,numberArray,shapeArray,colorArray)
+	
+	shadeArray = ["solid", "striped","open"]
+	numberArray = [1,2,3]
+	shapeArray = ["diamond", "squiggle", "oval"]
+	colorArray = ["red", "green", "purple"]
+	
 	deck = Array.new(81)
 	count =0			
 		for j in 0..2
