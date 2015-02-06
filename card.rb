@@ -68,11 +68,10 @@ It then adds the card to an array, which will be returned.
 
 		  colorArray:
 		  	Array with the color characteristic
-
 @returns: 
 	   deck: An array that is a deck of SET! cards.
 =end
-def makeDeck(shadeArray,numberArray,shapeArray,colorArray)
+def makeDeck()
 	
 	shadeArray = ["solid", "striped","open"]
 	numberArray = [1,2,3]
@@ -96,12 +95,11 @@ def makeDeck(shadeArray,numberArray,shapeArray,colorArray)
 				end
 			end
 		end
-	
 	return deck
 end
 
 testDeck= Array.new
-testDeck = makeDeck(shadeArray,numberArray,shapeArray,colorArray)	
+testDeck = makeDeck()	
 
 puts testDeck.size
 #puts testDeck[1].getColor
