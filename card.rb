@@ -50,12 +50,6 @@ class Card
 
 end
 
-shadeArray = ["solid", "striped","open"]
-numberArray = [1,2,3]
-shapeArray = ["diamond", "squiggle", "oval"]
-colorArray = ["red", "green", "purple"]
-
-
 =begin
 This method is used to create the cards and the playing deck.
 Each for loop is for a characteristic of the card(shape, color,etc).
@@ -72,7 +66,12 @@ It then adds the card to an array, which will be returned.
 @returns: 
 	   deck: An array that is a deck of SET! cards.
 =end
-def makeDeck(shadeArray,numberArray,shapeArray,colorArray)
+def makeDeck()
+	shadeArray = ["solid", "striped","open"]
+	numberArray = [1,2,3]
+	shapeArray = ["diamond", "squiggle", "oval"]
+	colorArray = ["red", "green", "purple"]
+
 	deck = Array.new(81)
 	count =0			
 		for j in 0..2
