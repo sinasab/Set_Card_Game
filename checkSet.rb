@@ -46,4 +46,11 @@ def checkSet(cardDeck)
 	else
 		puts "false"
 	end
+	
+	if (cardDeck[x.to_i].getShade == cardDeck[y.to_i].getShade and cardDeck[z.to_i].getShade == cardDeck[y.to_i].getShade) or ((cardDeck[x.to_i].getShade != cardDeck[y.to_i].getShade) and (cardDeck[x.to_i].getShade != cardDeck[z.to_i].getShade) and (cardDeck[y.to_i].getShade != cardDeck[z.to_i].getShade))
+		shadeCheck = "true"
+		puts "#{shadeCheck}"
+	else
+		puts "false"
+	end
 end
