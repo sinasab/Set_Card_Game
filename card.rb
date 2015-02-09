@@ -1,4 +1,3 @@
-
 #Class Card
 class Card
 	def initialize()
@@ -37,8 +36,7 @@ class Card
 	end
 
 	def getNumber()
-	return @number
-	end
+	return @number end
 
 	def getShade()
 	return @shade
@@ -66,7 +64,9 @@ It then adds the card to an array, which will be returned.
 @returns: 
 	   deck: An array that is a deck of SET! cards.
 =end
+
 def makeDeck()
+
 	shadeArray = ["solid", "striped","open"]
 	numberArray = [1,2,3]
 	shapeArray = ["diamond", "squiggle", "oval"]
@@ -89,6 +89,5 @@ def makeDeck()
 				end
 			end
 		end
-	
 	return deck
 end
