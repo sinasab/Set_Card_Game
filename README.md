@@ -19,7 +19,7 @@ Please list who did what for each part of the project, and if anyone [pair progr
 
 * Steven: 
 
-* Zach:
+* Zach: Created functions for checking if 3 selected cards were in a set. One function for each aspect of the card (ie color, shape)
 
 ## Testing
 Please put all testing materials (writeups code etc) in the `testing` dir.
