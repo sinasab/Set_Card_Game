@@ -1,53 +1,53 @@
-require './card.rb'
+require_relative "../card.rb"
 
+#This test is used to show that the makeDeck function creates a deck of 81 unique cards
 
-shadeArray = ["solid", "striped","open"]
-numberArray = [1,2,3]
-shapeArray = ["diamond", "squiggle", "oval"]
-colorArray = ["red", "green", "purple"]
-
-test = makeDeck(shapeArray,shadeArray,numberArray,colorArray)
+test = makeDeck()
 
 i = 0
-test[79].display
-test[79].setColor("purple")
 unique = true
-test[79].display
-
+=begin
+This loop tests that a newly created deck to see if there are any duplicate card attributes
+=end
 while i < test.size
 	current = Card.new
-	test[i] = current
+	current = test[i]
 	j = i+1
 	while j < test.size
-		if (current.getShape == test[j].getShape) then
+		if ((current.getShape == test[j].getShape) && (current.getShade == test[j].getShade) && (current.getNumber == test[j].getNumber) && 				(current.getColor == test[j].getColor)) then
 			unique = false
-			puts "Shoot!"
 			break
 		end
 
-		if(current.getShade == test[j].getShade)then
-			unique = false
-			puts "Shoot!"
-			break
-		end
-
-		if(current.getNumber == test[j].getNumber)then
-			unique = false
-			puts "Shoot!"
-			break
-		end
-
-		if(current.getColor == test[j].getColor)then
-			unique = false
-			puts "Shoot!"
-			break
-		end
-
-		j = j+1
+		j +=1
 	end
-
-	i = i+1
-
+	i += 1
 end
+puts "Results of an unaltered deck: #{unique}"
+puts "the size of the deck is #{test.size}"
 
-test[79].display
+i = 0
+j = 0
+unique2 = true
+test[30].display
+test[31].display
+test[30].setColor("green")
+=begin
+This loop tests that an altered deck will have a duplicate.
+=end
+while i < test.size
+	current = Card.new
+	current = test[i]
+	j = i+1
+	while j < test.size
+		if ((current.getShape == test[j].getShape) && (current.getShade == test[j].getShade) && (current.getNumber == test[j].getNumber) && 				(current.getColor == test[j].getColor)) then
+			unique2 = false
+			break
+		end
+
+		j +=1
+	end
+	i += 1
+end
+puts "Results of an altered deck: #{unique2}"
+
