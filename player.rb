@@ -23,33 +23,47 @@ class Player
 	#score bestScore
 	#
 	def display()
-		puts @name
-		print "#{@score} " 
-		print "#{@bestScore}\n"
+		puts "Player: #{@name}"
+		puts "Type: #{@pType}"
+		print "Current score: #{@score} " 
+		print "Best score: #{@bestScore}\n"
 	end
 
+	#returns player name
 	def getName
 		return @name
 	end
 
+	#sets name of player
 	def setName(name)
 		@name = name
 	end
-
-	def getScore()
+	# returns current score
+	def getScore
 		return @score
 	end
 
 	def setScore(score)
 		@score = score
 	end
-
+	# sets player type
 	def setType(type)
 		@pType = type
 	end
-
-	def getType()
+	#returns player type
+	def getType
 		return @pType
+	end
+	# increments score by 1
+	def scorePoint
+		@score += 1
+		if (@score >= @bestScore)
+			@bestScore = @score
+		end
+	end
+	#Used if we would like to penalize player for a wrong set
+	def losePoint
+		@score -= 1
 	end
 
 end
@@ -57,3 +71,9 @@ end
 test = Player.new
 test.setName("Roman")
 puts "My name is #{test.getName}"
+test.scorePoint
+puts test.getScore
+test.setType("Human")
+test.losePoint
+test.display
+
