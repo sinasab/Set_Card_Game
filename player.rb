@@ -11,7 +11,7 @@ class Player
 
 	def initialize()
 		#Constructor
-		@name = "bob"
+		@name = nil
 		@score = 0
 		@pType = nil
 		@bestScore = 0
