@@ -68,12 +68,3 @@ class Player
 
 end
 
-test = Player.new
-test.setName("Roman")
-puts "My name is #{test.getName}"
-test.scorePoint
-puts test.getScore
-test.setType("Human")
-test.losePoint
-test.display
-
