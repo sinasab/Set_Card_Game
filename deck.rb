@@ -1,5 +1,5 @@
 #Deck class
-require './card'
+require_relative './card'
 
 class Deck
 #Constructor
