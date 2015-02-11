@@ -1,93 +1,54 @@
 #Class Card
+=begin
+	Class Card for the game of Set.  Has the properties of shape
+	number,color and shade.
+	
+=end
 class Card
 	def initialize()
 	#Constructor
-	@shape = nil
-	@number	= nil
-	@shade = nil
-	@color = nil
+		@shape = nil
+		@number	= nil
+		@shade = nil
+		@color = nil
 	end
-
+	#Displays the card with each attribute on a line
 	def display()
-	puts @shape
-	puts @number
-	puts @shade
-	puts @color
+		puts @shape
+		puts @number
+		puts @shade
+		puts @color
 	end
-	
+	#sets shape
 	def setShape(shape)
-	@shape = shape
+		@shape = shape
 	end
-
+	#sets number
 	def setNumber(number)
-	@number = number
+		@number = number
 	end
-
+	#sets shade
 	def setShade(shade)
-	@shade = shade
+		@shade = shade
 	end
-
+	#sets color
 	def setColor(color)
-	@color = color
+		@color = color
 	end
-
-	def getShape()
-	return @shape
+	#returns shape
+	def getShape
+		return @shape
 	end
-
-	def getNumber()
-	return @number end
-
-	def getShade()
-	return @shade
+	#returns number
+	def getNumber
+		return @number 
 	end
-
-	def getColor()
-	return @color
+	#returns shade
+	def getShade
+		return @shade
 	end
-
-end
-
-=begin
-This method is used to create the cards and the playing deck.
-Each for loop is for a characteristic of the card(shape, color,etc).
-It then adds the card to an array, which will be returned.
-
-@params: shadeArray:
-		Array with the shade characteristic
-	numberArray:
-		Array with the number characteristic
-	shapeArray:
-		Array with the shape characteristic
-	colorArray:
-		Array with the color characteristic
-@returns: 
-	   deck: An array that is a deck of SET! cards.
-=end
-
-def makeDeck()
-
-	shadeArray = ["solid", "striped","open"]
-	numberArray = [1,2,3]
-	shapeArray = ["diamond", "squiggle", "oval"]
-	colorArray = ["red", "green", "purple"]
-
-	deck = Array.new(81)
-	count =0			
-		for j in 0..2
-			for k in 0..2
-				for l in 0..2
-					for m in 0..2
-						currentCard = Card.new
-						currentCard.setShape(shapeArray[j])
-						currentCard.setNumber(numberArray[k])
-						currentCard.setShade(shadeArray[l])
-						currentCard.setColor(colorArray[m])
-						deck[count] = currentCard
-						count = count+1									
-					end
-				end
-			end
-		end
-	return deck
+	# returns color
+	def getColor
+		return @color
+	end
 end
