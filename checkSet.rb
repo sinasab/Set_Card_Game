@@ -5,7 +5,7 @@ def checkSetColor(cardDeck, x, y, z)
 	colorCheck = 0;
 	
 
-	if (cardDeck.pickACard(x).color == cardDeck.pickACard(y).color and cardDeck.pickACard(z).color == cardDeck.pickACard(y).color) or ((cardDeck.pickACard(x).color != cardDeck.pickACard(y).color) and (cardDeck.pickACard(x).color != cardDeck.pickACard(z).color) and (cardDeck.pickACard(y).color != cardDeck.pickACard(z).color))
+	if (cardDeck[x].color == cardDeck[y].color and cardDeck[z].color == cardDeck[y].color) or ((cardDeck[x].color != cardDeck[y].color) and (cardDeck[x].color != cardDeck[z].color) and (cardDeck[y].color != cardDeck[z].color))
 		colorCheck = 1  
 	
 	end
@@ -18,7 +18,7 @@ def checkSetShape(cardDeck, x, y, z)
 	
 	shapeCheck = 0;
 
-	if (cardDeck.pickACard(x).shape == cardDeck.pickACard(y).shape and cardDeck.pickACard(z).shape == cardDeck.pickACard(y).shape) or ((cardDeck.pickACard(x).shape != cardDeck.pickACard(y).shape) and (cardDeck.pickACard(x).shape != cardDeck.pickACard(z).shape) and (cardDeck.pickACard(y).shape != cardDeck.pickACard(z).shape))
+	if (cardDeck[x].shape == cardDeck[y].shape and cardDeck[z].shape == cardDeck[y].shape) or ((cardDeck[x].shape != cardDeck[y].shape) and (cardDeck[x].shape != cardDeck[z].shape) and (cardDeck[y].shape != cardDeck[z].shape))
 		shapeCheck = 1  
 	end
 	return shapeCheck
@@ -29,7 +29,7 @@ def checkSetNumber(cardDeck, x, y, z)
 	
 	numberCheck = 0;
 
-	if (cardDeck.pickACard(x).number == cardDeck.pickACard(y).number and cardDeck.pickACard(z).number == cardDeck.pickACard(y).number) or ((cardDeck.pickACard(x).number != cardDeck.pickACard(y).number) and (cardDeck.pickACard(x).number != cardDeck.pickACard(z).number) and (cardDeck.pickACard(y).number != cardDeck.pickACard(z).number))
+	if (cardDeck[x].number == cardDeck[y].number and cardDeck[z].number == cardDeck[y].number) or ((cardDeck[x].number != cardDeck[y].number) and (cardDeck[x].number != cardDeck[z].number) and (cardDeck[y].number != cardDeck[z].number))
 		numberCheck = 1  
 	end
 	return numberCheck
@@ -41,7 +41,7 @@ def checkSetShade(cardDeck, x, y, z)
 	
 
 
-	if (cardDeck.pickACard(x).shade == cardDeck.pickACard(y).shade and cardDeck.pickACard(z).shade == cardDeck.pickACard(y).shade) or ((cardDeck.pickACard(x).shade != cardDeck.pickACard(y).shade) and (cardDeck.pickACard(x).shade != cardDeck.pickACard(z).shade) and (cardDeck.pickACard(y).shade != cardDeck.pickACard(z).shade))
+	if (cardDeck[x].shade == cardDeck[y].shade and cardDeck[z].shade == cardDeck[y].shade) or ((cardDeck[x].shade != cardDeck[y].shade) and (cardDeck[x].shade != cardDeck[z].shade) and (cardDeck[y].shade != cardDeck[z].shade))
 		shadeCheck = 1 
 	end
 	return shadeCheck
