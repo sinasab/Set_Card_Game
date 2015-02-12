@@ -19,7 +19,7 @@ Please list who did what for each part of the project, and if anyone [pair progr
 
 * Steven: 
 
-* Zach: Created functions for checking if 3 selected cards were in a set. One function for each aspect of the card (ie color, shape). Added function to call the 3 checkSets and return whether the 3 cards are a set. Working on a findSet to determine if an input deck has a set in it at all. 
+* Zach: Created functions for checking if 3 selected cards were in a set. One function for each aspect of the card (ie color, shape). Added function to call the 3 checkSets and return whether the 3 cards are a set. Working on a findSet to determine if an input deck has a set in it at all. Tests for checkSet.rb
 
 ## Testing
 Please put all testing materials (writeups code etc) in the `testing` dir.
