@@ -16,7 +16,7 @@ while i < test.deckSize
 	current = test.pickACard(i)
 	j = i+1
 	while j < test.deckSize
-		if ((current.getShape == test.pickACard(j).getShape) && (current.getShade == test.pickACard(j).getShade) && (current.getNumber == test.pickACard(j).getNumber) && (current.getColor == test.pickACard(j).getColor)) then
+		if ((current.shape == test.pickACard(j).shape) && (current.shade == test.pickACard(j).shade) && (current.number == test.pickACard(j).number) && (current.color == test.pickACard(j).color)) then
 			unique = false
 			break
 		end
@@ -33,7 +33,7 @@ j = 0
 unique2 = true
 test.pickACard(30).display
 test.pickACard(30).display
-test.pickACard(30).setColor("green")
+test.pickACard(30).color = "green"
 =begin
 This loop tests that an altered deck will have a duplicate.
 =end
@@ -42,7 +42,7 @@ while i < test.deckSize
 	current = test.pickACard(i)
 	j = i+1
 	while j < test.deckSize
-		if ((current.getShape == test.pickACard(j).getShape) && (current.getShade == test.pickACard(j).getShade) && (current.getNumber == test.pickACard(j).getNumber) && (current.getColor == test.pickACard(j).getColor)) then
+		if ((current.shape == test.pickACard(j).shape) && (current.shade == test.pickACard(j).shade) && (current.number == test.pickACard(j).number) && (current.color == test.pickACard(j).color)) then
 			unique2 = false
 			break
 		end

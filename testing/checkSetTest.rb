@@ -32,3 +32,7 @@ test = checkSetColor(testDeck, 0, 3, 6)	#should produce 0
 puts "Output: #{test}"
 puts ""
 
+puts "#{testDeck.pickACard(0).display}"
+puts "#{testDeck.pickACard(1).display}"
+puts "#{testDeck.pickACard(2).display}"
+
