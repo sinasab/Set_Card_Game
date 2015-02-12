@@ -14,7 +14,7 @@ def printCards(cards)
 |%11s|
 |%11s|
 -----------
-%11s" % [cards[i].getShape(),cards[i].getNumber(), cards[i].getShade(), cards[i].getColor(), i+1]
+%11s" % [cards[i].shape(),cards[i].number(), cards[i].shade(), cards[i].color(), i+1]
   i += 1
   end
 end
