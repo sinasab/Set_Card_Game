@@ -91,12 +91,12 @@ This includes the following:
 
 end
 
-testDeck = Deck.new
-testDeck.makeDeck
-testDeck.shuffleDeck!
-a=[]
-a.push(testDeck.dealCard!)
-a.push(testDeck.dealCard!)
-a.push(testDeck.dealCard!)
+# testDeck = Deck.new
+# testDeck.makeDeck
+# testDeck.shuffleDeck!
+# a=[]
+# a.push(testDeck.dealCard!)
+# a.push(testDeck.dealCard!)
+# a.push(testDeck.dealCard!)
 
-printCards(a)
+# printCards(a)
