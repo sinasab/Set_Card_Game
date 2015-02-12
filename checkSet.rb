@@ -100,3 +100,29 @@ def checkSetShade(cardDeck, x, y, z)
 	end
 	return shadeCheck
 end
+
+=begin
+param cardDeck:
+		set of cards in an array that will hold individual cards
+param: card1, card2, card3
+		three cards to be checked 
+return: true for set, false for no set
+
+This method calls the methods that check each component of the individual cards. If all 4 aspects fit the requirements for a set, then there is a set	
+
+	
+=end
+
+def checkSet(cardDeck, card1, card2, card3)
+
+	isSet = false
+	sumCheck = 0
+	sumCheck = checkSetShade(cardDeck, card1, card2, card3) + checkSetNumber(cardDeck, card1, card2, card3) + checkSetColor(cardDeck, card1, card2, card3) + checkSetShape(cardDeck, card1, card2, card3)
+
+	if sumCheck == 4
+		isSet = true
+	end
+
+	return isSet
+
+	end
