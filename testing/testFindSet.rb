@@ -4,5 +4,6 @@ require_relative '../checkSet'
 
 testDeck = Deck.new
 testDeck.makeDeck
+testCards = Array.new(testDeck.dealCards)
 
-findSet(testDeck)
+findSet(testCards)
