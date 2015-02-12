@@ -12,6 +12,7 @@ class Card
 		@shade = nil
 		@color = nil
 	end
+
 	#Displays the card with each attribute on a line
 	def display()
 		puts @shape
@@ -19,36 +20,10 @@ class Card
 		puts @shade
 		puts @color
 	end
-	#sets shape
-	def setShape(shape)
-		@shape = shape
-	end
-	#sets number
-	def setNumber(number)
-		@number = number
-	end
-	#sets shade
-	def setShade(shade)
-		@shade = shade
-	end
-	#sets color
-	def setColor(color)
-		@color = color
-	end
-	#returns shape
-	def getShape
-		return @shape
-	end
-	#returns number
-	def getNumber
-		return @number 
-	end
-	#returns shade
-	def getShade
-		return @shade
-	end
-	# returns color
-	def getColor
-		return @color
-	end
+	
+	attr_accessor :shape
+	attr_accessor :number
+	attr_accessor :shade
+	attr_accessor :color
+
 end

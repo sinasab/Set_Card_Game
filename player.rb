@@ -25,46 +25,27 @@ class Player
 	def display()
 		puts "Player: #{@name}"
 		puts "Type: #{@pType}"
-		print "Current score: #{@score} " 
+		print "Current score: #{@score}" 
 		print "Best score: #{@bestScore}\n"
 	end
 
-	#returns player name
-	def getName
-		return @name
-	end
+	attr_accessor :name
+	attr_accessor :score
+	attr_accessor :pType
 
-	#sets name of player
-	def setName(name)
-		@name = name
-	end
-	# returns current score
-	def getScore
-		return @score
-	end
-
-	def setScore(score)
-		@score = score
-	end
-	# sets player type
-	def setType(type)
-		@pType = type
-	end
-	#returns player type
-	def getType
-		return @pType
-	end
-	# increments score by 1
+	# increments score by 1 and updates @bestScore if necessary
 	def scorePoint
 		@score += 1
 		if (@score >= @bestScore)
 			@bestScore = @score
 		end
 	end
+
 	#Used if we would like to penalize player for a wrong set
 	def losePoint
 		@score -= 1
 	end
 
+	#potentially add methods to keep track of user's time down here
 end
 

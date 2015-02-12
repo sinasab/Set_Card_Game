@@ -11,10 +11,9 @@ def checkSetColor(cardDeck, x, y, z)
 	# z = gets.chomp
 
 
-
 	# puts "#{x} #{y} #{z}"
 
-	if (cardDeck[x.to_i].getColor == cardDeck[y.to_i].getColor and cardDeck[z.to_i].getColor == cardDeck[y.to_i].getColor) or ((cardDeck[x.to_i].getColor != cardDeck[y.to_i].getColor) and (cardDeck[x.to_i].getColor != cardDeck[z.to_i].getColor) and (cardDeck[y.to_i].getColor != cardDeck[z.to_i].getColor))
+	if (cardDeck[x.to_i].color == cardDeck[y.to_i].color and cardDeck[z.to_i].color == cardDeck[y.to_i].color) or ((cardDeck[x.to_i].color != cardDeck[y.to_i].color) and (cardDeck[x.to_i].color != cardDeck[z.to_i].color) and (cardDeck[y.to_i].color != cardDeck[z.to_i].color))
 		colorCheck = 1  #will eventually be replaced by 1
 		#puts "#{colorCheck}"
 	
@@ -41,10 +40,10 @@ def checkSetShape(cardDeck, x, y, z)
 
 	# puts "#{x} #{y} #{z}"
 
-	# puts "#{cardDeck[x.to_i].getShape} #{cardDeck[y.to_i].getShape} #{cardDeck[z.to_i].getShape}"
+	# puts "#{cardDeck[x.to_i].shape} #{cardDeck[y.to_i].shape} #{cardDeck[z.to_i].shape}"
 
 
-	if (cardDeck[x.to_i].getShape == cardDeck[y.to_i].getShape and cardDeck[z.to_i].getShape == cardDeck[y.to_i].getShape) or ((cardDeck[x.to_i].getShape != cardDeck[y.to_i].getShape) and (cardDeck[x.to_i].getShape != cardDeck[z.to_i].getShape) and (cardDeck[y.to_i].getShape != cardDeck[z.to_i].getShape))
+	if (cardDeck[x.to_i].shape == cardDeck[y.to_i].shape and cardDeck[z.to_i].shape == cardDeck[y.to_i].shape) or ((cardDeck[x.to_i].shape != cardDeck[y.to_i].shape) and (cardDeck[x.to_i].shape != cardDeck[z.to_i].shape) and (cardDeck[y.to_i].shape != cardDeck[z.to_i].shape))
 		shapeCheck = 1  #will be replaced by 1 
 		#puts "#{shapeCheck}"
 	end
@@ -67,9 +66,9 @@ def checkSetNumber(cardDeck, x, y, z)
 
 	# puts "#{x} #{y} #{z}"
 
-	# puts "#{cardDeck[x.to_i].getNumber} #{cardDeck[y.to_i].getNumber} #{cardDeck[z.to_i].getNumber}"
+	# puts "#{cardDeck[x.to_i].number} #{cardDeck[y.to_i].number} #{cardDeck[z.to_i].number}"
 
-	if (cardDeck[x.to_i].getNumber == cardDeck[y.to_i].getNumber and cardDeck[z.to_i].getNumber == cardDeck[y.to_i].getNumber) or ((cardDeck[x.to_i].getNumber != cardDeck[y.to_i].getNumber) and (cardDeck[x.to_i].getNumber != cardDeck[z.to_i].getNumber) and (cardDeck[y.to_i].getNumber != cardDeck[z.to_i].getNumber))
+	if (cardDeck[x.to_i].number == cardDeck[y.to_i].number and cardDeck[z.to_i].number == cardDeck[y.to_i].number) or ((cardDeck[x.to_i].number != cardDeck[y.to_i].number) and (cardDeck[x.to_i].number != cardDeck[z.to_i].number) and (cardDeck[y.to_i].number != cardDeck[z.to_i].number))
 		numberCheck = 1  #will eventually be replaced with 1	
 		#puts "#{numberCheck}" 
 	
@@ -92,9 +91,9 @@ def checkSetShade(cardDeck, x, y, z)
 
 	# puts "#{x} #{y} #{z}"
 
-	# puts "#{cardDeck[x.to_i].getShade} #{cardDeck[y.to_i].getShade} #{cardDeck[z.to_i].getShade}"
+	# puts "#{cardDeck[x.to_i].shade} #{cardDeck[y.to_i].shade} #{cardDeck[z.to_i].shade}"
 
-	if (cardDeck[x.to_i].getShade == cardDeck[y.to_i].getShade and cardDeck[z.to_i].getShade == cardDeck[y.to_i].getShade) or ((cardDeck[x.to_i].getShade != cardDeck[y.to_i].getShade) and (cardDeck[x.to_i].getShade != cardDeck[z.to_i].getShade) and (cardDeck[y.to_i].getShade != cardDeck[z.to_i].getShade))
+	if (cardDeck[x.to_i].shade == cardDeck[y.to_i].shade and cardDeck[z.to_i].shade == cardDeck[y.to_i].shade) or ((cardDeck[x.to_i].shade != cardDeck[y.to_i].shade) and (cardDeck[x.to_i].shade != cardDeck[z.to_i].shade) and (cardDeck[y.to_i].shade != cardDeck[z.to_i].shade))
 		shadeCheck = 1 #this will eventually be replaced with 1
 		#puts "#{shadeCheck}"
 	end
@@ -110,19 +109,13 @@ return: true for set, false for no set
 
 This method calls the methods that check each component of the individual cards. If all 4 aspects fit the requirements for a set, then there is a set	
 
-	
 =end
 
 def checkSet(cardDeck, card1, card2, card3)
 
-	isSet = false
 	sumCheck = 0
 	sumCheck = checkSetShade(cardDeck, card1, card2, card3) + checkSetNumber(cardDeck, card1, card2, card3) + checkSetColor(cardDeck, card1, card2, card3) + checkSetShape(cardDeck, card1, card2, card3)
 
-	if sumCheck == 4
-		isSet = true
-	end
+	return sumCheck==4
 
-	return isSet
-
-	end
+end

@@ -18,7 +18,7 @@ class Deck
 	end
 	#deals a card from position 0 in array
 	def dealCard!
-		if (@deckSize > 0)
+		if (@deck.size > 0)
 			return @deck.shift
 		end
 	end
@@ -28,6 +28,7 @@ class Deck
 			return @deck[int]
 		else
 			puts "Card unavailables"
+			return nil
 		end
 	end
 =begin
@@ -50,13 +51,13 @@ class Deck
 				for l in 0..2
 					for m in 0..2
 						currentCard = Card.new
-						currentCard.setShape(shapeArray[j])
-						currentCard.setNumber(numberArray[k])
-						currentCard.setShade(shadeArray[l])
-						currentCard.setColor(colorArray[m])
+						currentCard.shape=(shapeArray[j])
+						currentCard.number=(numberArray[k])
+						currentCard.shade=(shadeArray[l])
+						currentCard.color=(colorArray[m])
 						@deck[count] = currentCard
 						count += 1
-					end						
+					end					
 				end
 			end
 		end
@@ -64,13 +65,9 @@ class Deck
 
 =begin
 function dealCards
-
 param: @deck
-
 returns: an array containing the cards that are currently in play
-
 This method takes care of everything that needs to be done when dealing for Set.
-
 This includes the following: 
     -Take 12 cards from the top of the deck
     -Check to see if there exists at least 1 set in those cards
@@ -91,10 +88,10 @@ This includes the following:
 
     	return tableCards
 	end
+
 end
 
 testDeck = Deck.new
 testDeck.makeDeck
 testDeck.shuffleDeck!
 table = testDeck.dealCards
-
