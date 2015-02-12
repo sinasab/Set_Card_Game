@@ -15,7 +15,7 @@ def printCards(cards)
   	print "|%11s||%11s||%11s|\n" % [cards[i].shade(), cards[i+1].shade, cards[i+2].shade]
   	print "|%11s||%11s||%11s|\n" % [cards[i].color(), cards[i+1].color, cards[i+2].color]
   	print "|___________||___________||___________|\n"
-
+    print "%11s %11s %11s\n\n" % [i, i+1, i+2]
   	i+=3
   end
 
