@@ -1,3 +1,6 @@
+require_relative './card'
+
+
 def checkSetColor(cardDeck, x, y, z)
 	colorCheck = 0;
 	

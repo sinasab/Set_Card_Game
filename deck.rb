@@ -94,4 +94,9 @@ end
 testDeck = Deck.new
 testDeck.makeDeck
 testDeck.shuffleDeck!
-table = testDeck.dealCards
+a=[]
+a.push(testDeck.dealCard!)
+a.push(testDeck.dealCard!)
+a.push(testDeck.dealCard!)
+
+printCards(a)

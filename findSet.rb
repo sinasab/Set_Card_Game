@@ -1,11 +1,10 @@
+require_relative './card'
+require_relative './checkSet'
+
 =begin
-
 shownCards: an array holding the cards that are shown on the shown to the user
-
 returns true if a set exists, false otherwise
-
 This method checks for sets in the cards shown
-
 =end
 def findSet(shownCards)
 	hasSet = false
