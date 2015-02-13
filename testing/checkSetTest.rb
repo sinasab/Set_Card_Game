@@ -1,4 +1,4 @@
-require_relative '../checkSet.rb'
+ require_relative '../checkSet.rb'
 require_relative '../deck.rb'
 require_relative '../card.rb'
 =begin
@@ -41,4 +41,6 @@ puts ""
 puts "#{testDeck.pickACard(0).display}"
 puts "#{testDeck.pickACard(1).display}"
 puts "#{testDeck.pickACard(2).display}"
+
+puts "test"
 
