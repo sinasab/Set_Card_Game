@@ -2,31 +2,18 @@ require_relative './card'
 require_relative './checkSet'
 
 =begin
-shownCards: an array holding the cards that are shown on the shown to the user
-returns true if a set exists, false otherwise
-This method checks for sets in the cards shown
+Takes as a parameter an array of cards and returns an array of triples that are indexes of cards that make sets. ie. if cards 1,3, and 4 were a set, and 5, 8, and 12 were a set, the function will return [[1,3,4],[1,8,12]].
 =end
-def findSet(shownCards)
-	hasSet = false
-
-	i = 0;
-	
-	#z is used as a test to make sure that there are enough iterations. for example if there are 12 cards shown, then z should read 12c3 (12 choose 3) which would be 220
-	z = 0
-	while i < (shownCards.size)-2 and !hasSet
-		j = i +1
-		while j < (shownCards.size)-1 and !hasSet
-			k = j + 1
-			while k < (shownCards.size) and !hasSet
-				hasSet = checkSet(shownCards, i, j, k)
-				z += 1
-				#puts "#{z}"
-				k +=1
+def findSets(shownCards)
+	sets=[]
+	for i in 0...shownCards.size-2
+		for j in i+1...shownCards.size-1
+			for k in j+2...shownCards.size
+				if checkSet(shownCards,i,j,k)
+					sets.push([i,j,k])
+				end
 			end
-			j +=1
 		end
-		i +=1
-
 	end
-	return hasSet
+	return sets
 end
