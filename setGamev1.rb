@@ -65,6 +65,13 @@ def getPlayers
 
 	return players
 end
+
+def playerScores( playerList)
+	for i in 0..playerList.size-1
+		puts "#{playerList[i].name} current score is:#{playerList[i].score}"
+	end
+end
+
 =begin
 	@param:
 		playerList- An array containing the players
@@ -79,12 +86,12 @@ def pickSet (playerList, tableCards,cardDeck)
 		puts " Enter your player number to call set: "
 		playerIndex = gets.to_i
 		playerIndex -=1
-		break if(playerIndex <= playerList.length)
+		break if((playerIndex <= playerList.length))
 	end
 
  	card1, card2, card3 = 0,0,0
 	loop do
-		puts "#{playerList[playerIndex].name},enter the card numbers(1-#{tableCards.length}) that you think are a set. One per Line: "
+		puts "#{playerList[playerIndex].name},enter the card numbers(0-#{tableCards.length-1}) that you think are a set. One per Line: "
 		card1 =gets.to_i
 		card2 =gets.to_i
 		card3 =gets.to_i
@@ -95,19 +102,20 @@ def pickSet (playerList, tableCards,cardDeck)
 
 	if(isSet) then
 		puts "Nice Job! You found a SET!"
-		tableCards[card1-1]=cardDeck.dealCard!
-		tableCards[card2-1]=cardDeck.dealCard!
-		tableCards[card3-1]=cardDeck.dealCard!
+		tableCards[card1]=cardDeck.dealCard!
+		tableCards[card2]=cardDeck.dealCard!
+		tableCards[card3]=cardDeck.dealCard!
 		printCards(tableCards)
 		playerList[playerIndex].scorePoint
-		puts "#{playerList[playerIndex].name} current score is:#{playerList[playerIndex].score}"
+		playersScores(playerList)
 	else
 		puts "That is not a SET! You lose a point!"
 		printCards(tableCards)
 		playerList[playerIndex].losePoint
-		puts "#{playerList[playerIndex].name} current score is: #{playerList[playerIndex].score}"
+		playerScores(playerList)
 	end
 end
+
 
 #######################################
 
@@ -122,7 +130,7 @@ cardDeck.makeDeck
 cardDeck.shuffleDeck!
 cardDeck.shuffleDeck!
 cardDeck.shuffleDeck!
-tableCards = cardDeck.dealCards
+printCards(tableCards = cardDeck.dealCards)
 while (cardDeck.deckSize > 0)
 	pickSet(playerList,tableCards,cardDeck)
 end
