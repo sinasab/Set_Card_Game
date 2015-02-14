@@ -2,37 +2,43 @@ require_relative './checkSet'
 require_relative './deck'
 require_relative './player'
 
-def takeATurn(playerNum, tableDeck, card1, card2, card3, playerArray)
+def takeATurn(tableDeck, playerArray)
 
-	puts "Enter your player number when you've found a set!"
+	puts "Enter your player number:"
+
 	playerNum = gets.chomp.to_i
+	playerNum=playerNum-1
 	while playerNum > playerArray.length
 		puts "Enter a valid player number!"
 		playerNum = gets.chomp.to_i
-		puts ""
+		playerNum=playerNum-1
 	end
 
-	puts "Now enter the cards one at a time!"
+	puts "Ok #{playerArray[playerNum].name}, now enter the cards. One card per line!"
 	card1 = gets.chomp.to_i
-	while card1 > tableDeck.length
+	while card1 > tableDeck.length || card1<0
 		puts "Enter a valid card number!"
 		card1 = gets.chomp.to_i
 		puts ""
 	end
 
 	card2 = gets.chomp.to_i
-	while card2 > tableDeck.length || card2 == card1
+	while card2 > tableDeck.length || card2 == card1 || card2<0
 		puts "Enter a valid card number!"
 		card2 = gets.chomp.to_i
 		puts ""
 	end
 
 	card3 = gets.chomp.to_i
-	while card3 > tableDeck.length || card3 == card2 || card3 == card1
+	while card3 > tableDeck.length || card3 == card2 || card3 == card1 ||card3<0
 		puts "Enter a valid card number!"
 		card3 = gets.chomp.to_i
 		puts ""
 	end
+	if !checkSet(tableDeck, card1, card2, card3)
+		playerNum=-1
+	end
+	return playerNum
 end
 
 
@@ -70,40 +76,34 @@ end
 deck = Deck.new
 deck.makeDeck
 deck.shuffleDeck!
-
-#Create the deck of table cards
-tableDeck = Array.new
-
-tableDeck = deck.dealCards
+tableCards = deck.dealCards
+printCards(tableCards)
 card1 = 0
 card2 = 0
 card3 = 0
 
-
-#Unsure about this loop condition
-while findSets(tableDeck).size!=0
-	tableDeck = deck.dealCards
-	takeATurn(playerNum, tableDeck, card1, card2, card3, playerArray)
-	check = checkSet(tableDeck, card1, card2, card3)
-
-	while check == false
-		puts "Woops, thats not a set, try again!"
-		takeATurn(playerNum, tableDeck, card1, card2, card3, playerArray)
+while deck.deckSize>0 && deck.deckSize<81
+	puts "Current players are: "
+	for i in 0...playerArray.size
+		puts "#{i+1}. #{playerArray[i].name}, score: #{playerArray[i].score}"
 	end
-
-	#Remove three cards and deal three new to tableDeck
-	if check == true
-		puts "Congrats! Ready for the next round? [Y/N]"
-		playerArray[playerNum-1].scorePoint
-		tableDeck[card1-1]=deck.dealCard!
-		tableDeck[card2-1]=deck.dealCard!
-		tableDeck[card3-1]=deck.dealCard!
+	puts "Enter S to enter a set, H for a hint, or Q to quit!\n"
+	input=gets.chomp.downcase
+	while(!["s","h","q"].include? input)
+		"Enter a valid input!"
 	end
-
-	playCheck = gets.chomp.downcase
-
-	while playCheck != 'y'
-		puts "\n Enter [Y] when you're ready!"
-		playCheck = gets.chomp.downcase
+	if input=="s"
+		playerNum=takeATurn(tableCards, playerArray)
+		if playerNum >=0
+			playerArray[playerNum].scorePoint
+			puts "#{playerArray[playerNum].name} has scored a point!\n\n"
+		else
+			puts "Those cards actually don't make a set.\n\n"
+		end
+	elsif input=="h"
+		puts "There is a set made up of the following cards: #{findSets(tableCards)[0]}\n\n"
+	elsif input=="q"
+		deck.makeDeck
+		puts "Thanks for playing. Goodbye!"
 	end
 end
