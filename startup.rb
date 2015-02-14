@@ -27,6 +27,4 @@ while playCheck != 'y'
 	playCheck = gets.chomp.downcase
 end
 
-makeDeck
 
-dealCards
