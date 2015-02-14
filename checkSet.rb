@@ -1,5 +1,4 @@
 require_relative './card.rb'
-require_relative './deck.rb'
 
 def checkSetColor(cardDeck, x, y, z)
 	colorCheck = 0;

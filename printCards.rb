@@ -14,7 +14,7 @@ param: cards[]
   	print "|%11s||%11s||%11s|\n" % [cards[i].shade, cards[i+1].shade, cards[i+2].shade]
   	print "|%11s||%11s||%11s|\n" % [cards[i].color, cards[i+1].color, cards[i+2].color]
   	print "|___________||___________||___________|\n"
-    print "%11s %11s %11s\n\n" % [i+1, i+2, i+3]
+    print "%11s %11s %11s\n\n" % [i, i+1, i+2]
   	i+=3
   end
 
@@ -27,6 +27,6 @@ prints all info for cards to user line by line, with the index of the card at th
 =end
 def printCardsLines(cards)
   for i in 0...cards.length
-    puts "#{i+1} #{cards[i].shape}, #{cards[i].shade}, #{cards[i].color}, #{cards[i].number}, "
+    puts "#{i} #{cards[i].shape}, #{cards[i].shade}, #{cards[i].color}, #{cards[i].number}, "
   end
 end
