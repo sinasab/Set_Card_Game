@@ -9,7 +9,7 @@ require_relative './player'
 
 	
 =end
-def takeATurn(tableDeck, playerArray)
+def takeATurn(tableDeck, playerArray,deck)
 
 	puts "Enter your player number:"
 	playerNum = gets.chomp.to_i
@@ -44,6 +44,10 @@ def takeATurn(tableDeck, playerArray)
 	end
 	if !checkSet(tableDeck, card1, card2, card3)
 		playerNum=-1
+	else
+		tableDeck[card1]=deck.dealCard!
+		tableDeck[card2]=deck.dealCard!
+		tableDeck[card3]=deck.dealCard!
 	end
 	return playerNum
 end
@@ -72,6 +76,44 @@ def printWelcome
                     ____) | |____   | |  |_|           
                    |_____/|______|  |_|  (_)           
                                                    '
+end
+
+
+def keyPart(deck,tableCards,playerArray)
+	while deck.deckSize>0 && deck.deckSize<81
+		printCards(tableCards)
+		puts "Current players are: "
+		for i in 0...playerArray.size
+		puts "#{i+1}. #{playerArray[i].name}, score: #{playerArray[i].score}"
+		end
+
+		puts "Enter S to enter a set, H for a hint, or Q to quit!\n"
+		input=gets.chomp.downcase
+
+		while(!["s","h","q"].include? input)
+			"Enter a valid input!"
+			input = gets.chomp.downcase
+		end
+
+		if input=="s"
+			playerNum=takeATurn(tableCards, playerArray,deck)
+			if playerNum >=0
+				playerArray[playerNum].scorePoint
+				system ("clear")
+				puts "#{playerArray[playerNum].name} has scored a point!\n\n"
+				keyPart(deck,tableCards,playerArray)
+			else
+				system ("clear")
+				puts "Those cards actually don't make a set.\n\n"
+				keyPart(deck,tableCards,playerArray)
+			end
+		elsif input=="h"
+			puts "There is a set made up of the following cards: #{findSets(tableCards)[0]}\n\n"
+		elsif input=="q"		
+			puts "Thanks for playing. Goodbye!"
+			exit
+		end
+	end
 end
 
 #########################   MAIN      ###########################
@@ -114,38 +156,9 @@ deck = Deck.new
 deck.makeDeck
 deck.shuffleDeck!
 tableCards = deck.dealCards
-printCards(tableCards)
-card1 = 0
-card2 = 0
-card3 = 0
+#printCards(tableCards)
+#card1 = 0
+#card2 = 0
+#card3 = 0
 
-while deck.deckSize>0 && deck.deckSize<81
-	puts "Current players are: "
-	for i in 0...playerArray.size
-		puts "#{i+1}. #{playerArray[i].name}, score: #{playerArray[i].score}"
-	end
-
-	puts "Enter S to enter a set, H for a hint, or Q to quit!\n"
-	input=gets.chomp.downcase
-
-	while(!["s","h","q"].include? input)
-		"Enter a valid input!"
-		input = gets.chomp.downcase
-	end
-
-	if input=="s"
-		playerNum=takeATurn(tableCards, playerArray)
-		if playerNum >=0
-			playerArray[playerNum].scorePoint
-			puts "#{playerArray[playerNum].name} has scored a point!\n\n"
-		else
-			puts "Those cards actually don't make a set.\n\n"
-		end
-	elsif input=="h"
-		puts "There is a set made up of the following cards: #{findSets(tableCards)[0]}\n\n"
-	elsif input=="q"
-		deck.makeDeck
-		puts "Thanks for playing. Goodbye!"
-	end
-end
-
+keyPart(deck,tableCards,playerArray)
