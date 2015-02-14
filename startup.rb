@@ -5,10 +5,9 @@ require_relative './player'
 def takeATurn(tableDeck, playerArray)
 
 	puts "Enter your player number:"
-
 	playerNum = gets.chomp.to_i
 	playerNum=playerNum-1
-	while playerNum > playerArray.length
+	while playerNum >= playerArray.length || playerNum <0 
 		puts "Enter a valid player number!"
 		playerNum = gets.chomp.to_i
 		playerNum=playerNum-1
@@ -87,11 +86,15 @@ while deck.deckSize>0 && deck.deckSize<81
 	for i in 0...playerArray.size
 		puts "#{i+1}. #{playerArray[i].name}, score: #{playerArray[i].score}"
 	end
+
 	puts "Enter S to enter a set, H for a hint, or Q to quit!\n"
 	input=gets.chomp.downcase
+
 	while(!["s","h","q"].include? input)
 		"Enter a valid input!"
+		input = gets.chomp.downcase
 	end
+
 	if input=="s"
 		playerNum=takeATurn(tableCards, playerArray)
 		if playerNum >=0
