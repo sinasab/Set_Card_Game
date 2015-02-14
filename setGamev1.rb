@@ -83,10 +83,10 @@ def pickSet (playerList, tableCards,cardDeck)
 	#set to one as default for single player.
 	playerIndex =0
 	loop do
-		puts " Enter your player number to call set: "
+		puts " Enter your player number: "
 		playerIndex = gets.to_i
 		playerIndex -=1
-		break if((playerIndex <= playerList.length))
+		break if((playerIndex < playerList.length))
 	end
 
  	card1, card2, card3 = 0,0,0
@@ -97,8 +97,8 @@ def pickSet (playerList, tableCards,cardDeck)
 		card3 =gets.to_i
 		break if ((card1 != card2) and (card1 != card3) and (card2 != card3) and (card1 <= tableCards.size) and (card2 <= tableCards.size) and (card3 <= tableCards.size) )
 	end	
-	# minus 1 for each card to adjust for array usage
-	isSet = checkSet(tableCards,(card1-1),(card2-1),(card3-1))
+
+	isSet = checkSet(tableCards,(card1),(card2),(card3))
 
 	if(isSet) then
 		puts "Nice Job! You found a SET!"
@@ -107,7 +107,7 @@ def pickSet (playerList, tableCards,cardDeck)
 		tableCards[card3]=cardDeck.dealCard!
 		printCards(tableCards)
 		playerList[playerIndex].scorePoint
-		playersScores(playerList)
+		playerScores(playerList)
 	else
 		puts "That is not a SET! You lose a point!"
 		printCards(tableCards)

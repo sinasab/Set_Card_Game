@@ -1,14 +1,21 @@
 require_relative './checkSet'
 require_relative './deck'
 require_relative './player'
+=begin
+	@param:
+		tableDeck: The current cards that are on the table
+		playerArray: The current players that are playing the game.
 
+
+	
+=end
 def takeATurn(tableDeck, playerArray)
 
 	puts "Enter your player number:"
 
 	playerNum = gets.chomp.to_i
 	playerNum=playerNum-1
-	while playerNum > playerArray.length
+	while playerNum > playerArray.length-1
 		puts "Enter a valid player number!"
 		playerNum = gets.chomp.to_i
 		playerNum=playerNum-1
@@ -41,8 +48,34 @@ def takeATurn(tableDeck, playerArray)
 	return playerNum
 end
 
+=begin
+	This method prints the title.  The ASCII art is from a website.
+	http://patorjk.com/software/taag/#p=display&f=Graffiti&t=Type%20Something
+	Dr. Shareef approved the use of this.
+=end
+def printWelcome 
+	puts '
+ __          ________ _      _____ ____  __  __ ______ 
+ \ \        / |  ____| |    / ____/ __ \|  \/  |  ____|
+  \ \  /\  / /| |__  | |   | |   | |  | | \  / | |__   
+   \ \/  \/ / |  __| | |   | |   | |  | | |\/| |  __|  
+    \  /\  /  | |____| |___| |___| |__| | |  | | |____ 
+     \/  \/   |______|______\_____\____/|_|  |_|______|
+              |__   __|                                
+                 | | ___                               
+                 | |/ _ \                              
+                 | | (_) |                             
+                 |_|\___/_ ______ _______ _            
+                    / ____|  ____|__   __| |           
+                   | (___ | |__     | |  | |           
+                    \___ \|  __|    | |  | |           
+                    ____) | |____   | |  |_|           
+                   |_____/|______|  |_|  (_)           
+                                                   '
+end
 
-puts "\nLet's Play Set!\n\n"
+#########################   MAIN      ###########################
+printWelcome
 puts "How many people are playing? Please enter an integer greater than 0! \n"
 
 playerNum = gets.chomp.to_i
@@ -63,7 +96,11 @@ while i < (playerNum+1)
 	i=i+1
 end
 
-puts "\nGreat! Set will deal you 12 cards, if you find a set, type in your player number and hit enter, then type in the first card in the set and hit enter, and repeat for the other 2 cards in the set. If the cards you identify make a set, they will be removed and replaced, and you will gain a point! Keep going until you run out of cards in the deck! Ready to play? [Y/N]"
+puts "\nGreat! Set will deal you 12 cards, if you find a set, type in your player number and hit enter. 
+Then type in the first card in the set and hit enter, and repeat for the other 2 cards in the set. 
+If the cards you identify make a set, they will be removed and replaced, and you will gain a point! Keep 
+going until you run out of cards in the deck! 
+Ready to play? [Y/N]"
 
 playCheck = gets.chomp.downcase
 
