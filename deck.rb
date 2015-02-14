@@ -79,24 +79,19 @@ This includes the following:
 	def dealCards
     	tableCards = []
     	#deal cards 3 at a time until the table has at least 12 cards and a set. stop if the deck runs out of cards
-    	while(@deck.length>0 && (tableCards.length<12 || !findSet(tableCards)))
+    	while(@deck.length>0 && (tableCards.length<12 || findSets(tableCards).size==0))
         	tableCards.push(@deck.pop());
         	tableCards.push(@deck.pop());
         	tableCards.push(@deck.pop());
-    	end    
-    	printCards(tableCards);
-
+    	end
     	return tableCards
 	end
-
 end
 
-# testDeck = Deck.new
+# system "clear"
+# testDeck=Deck.new
 # testDeck.makeDeck
 # testDeck.shuffleDeck!
-# a=[]
-# a.push(testDeck.dealCard!)
-# a.push(testDeck.dealCard!)
-# a.push(testDeck.dealCard!)
-
-# printCards(a)
+# table=testDeck.dealCards
+# printCards(table);
+# print "#{findSets(table)[0]} make a set\n"
