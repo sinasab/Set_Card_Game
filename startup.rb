@@ -81,7 +81,7 @@ card3 = 0
 
 
 #Unsure about this loop condition
-while findSet(tableDeck) == true
+while findSets(tableDeck).size!=0
 	tableDeck = deck.dealCards
 	takeATurn(playerNum, tableDeck, card1, card2, card3, playerArray)
 	check = checkSet(tableDeck, card1, card2, card3)
