@@ -88,9 +88,10 @@ This includes the following:
 	end
 end
 
-testDeck=Deck.new
-testDeck.makeDeck
-testDeck.shuffleDeck!
-table=testDeck.dealCards
-printCards(table);
-print "#{findSets(table)[0]}\n"
+# system "clear"
+# testDeck=Deck.new
+# testDeck.makeDeck
+# testDeck.shuffleDeck!
+# table=testDeck.dealCards
+# printCards(table);
+# print "#{findSets(table)[0]} make a set\n"
