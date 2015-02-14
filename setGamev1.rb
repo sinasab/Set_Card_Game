@@ -60,7 +60,7 @@ def getPlayers
 		player = Player.new
 		puts "Please enter your name Player #{i+1}: "
 		player.name = gets.chomp
-		players[0] = player	
+		players[i] = player	
 	end
 
 	return players
@@ -72,23 +72,40 @@ end
 
 	
 =end
-def pickSet (playerList, tableCards)
-	puts " Enter your player number to call set: "
-	playerIndex = gets.chomp.to_i +1
+def pickSet (playerList, tableCards,cardDeck)
+	#set to one as default for single player.
+	playerIndex =0
+	loop do
+		puts " Enter your player number to call set: "
+		playerIndex = gets.to_i
+		playerIndex -=1
+		break if(playerIndex <= playerList.length)
+	end
 
-	puts "Enter the card numbers that you think are a set with a space in between ( # # #): "
-	choice = gets.split(' ')
-	isSet = checkSet(tableCards,choice[0].to_i,choice[1].to_i,choice[2].to_i)
+ 	card1, card2, card3 = 0,0,0
+	loop do
+		puts "#{playerList[playerIndex].name},enter the card numbers(1-#{tableCards.length}) that you think are a set. One per Line: "
+		card1 =gets.to_i
+		card2 =gets.to_i
+		card3 =gets.to_i
+		break if ((card1 != card2) and (card1 != card3) and (card2 != card3) and (card1 <= tableCards.size) and (card2 <= tableCards.size) and (card3 <= tableCards.size) )
+	end	
+	# minus 1 for each card to adjust for array usage
+	isSet = checkSet(tableCards,(card1-1),(card2-1),(card3-1))
 
 	if(isSet) then
-		tableCards[choice[0].to_i]=testDeck.dealCard!
-		tableCards[choice[1].to_i]=testDeck.dealCard!
-		tableCards[choice[2].to_i]=testDeck.dealCard!
+		puts "Nice Job! You found a SET!"
+		tableCards[card1-1]=cardDeck.dealCard!
+		tableCards[card2-1]=cardDeck.dealCard!
+		tableCards[card3-1]=cardDeck.dealCard!
 		printCards(tableCards)
 		playerList[playerIndex].scorePoint
-		puts "#{playerList[playerIndex].score}"
+		puts "#{playerList[playerIndex].name} current score is:#{playerList[playerIndex].score}"
 	else
+		puts "That is not a SET! You lose a point!"
 		printCards(tableCards)
+		playerList[playerIndex].losePoint
+		puts "#{playerList[playerIndex].name} current score is: #{playerList[playerIndex].score}"
 	end
 end
 
@@ -106,4 +123,6 @@ cardDeck.shuffleDeck!
 cardDeck.shuffleDeck!
 cardDeck.shuffleDeck!
 tableCards = cardDeck.dealCards
-pickSet(playerList,tableCards)
+while (cardDeck.deckSize > 0)
+	pickSet(playerList,tableCards,cardDeck)
+end
