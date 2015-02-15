@@ -1,6 +1,9 @@
 # Project 2
 ## The Game of Set (Ruby 1)
 
+## Instructions
+Download all the files, then run "ruby startup.rb" in the terminal from the project directory.
+
 ## Roles
 * Overall Project Manager: Sina Sabet
 * Coding Manager: Tom Antenucci
@@ -13,7 +16,7 @@ Please list who did what for each part of the project, and if anyone [pair progr
 * Roman: Created class for card elements. Created Player class. Created Deck class which contains function for creating deck of cards (Sina helped
          getting it to work properly).
 
-* Sina: Worked on function to deal cards which was eventually implemented into the deck class, updated the classes to use "attr_accessor" like we were taught in class, wrote "printCards.rb", which prints cards to the console, either using ascii art to draw the cards or just with the card's info line by line.
+* Sina: Worked on function to deal cards which was eventually implemented into the deck class, updated the classes to use "attr_accessor" like we were taught in class, wrote "printCards.rb", which prints cards to the console, either using ascii art to draw the cards or just with the card's info line by line. Worked on startup.rb and updated findSets to return an array of all the sets rather than just a boolean of whether or not sets existed.
 
 * Tom:
 
