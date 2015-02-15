@@ -126,6 +126,7 @@ def keyPart(deck,tableCards,playerArray)
 		end
 	end
 	puts "The deck ran out of cards, or there are no more sets! Thanks for Playing!"
+	exit
 end
 
 #########################   MAIN      ###########################
