@@ -5,6 +5,7 @@ require_relative './player'
 	@param:
 		tableDeck: The current cards that are on the table
 		playerArray: The current players that are playing the game.
+	function that allows player to enter their proposed set. Checks player's input to ensure it is valid and then checks to see if the selected cards make a set. Takes action accordingly.
 =end
 def takeATurn(tableDeck, playerArray,deck)
 	puts "Enter your player number:"
@@ -15,6 +16,7 @@ def takeATurn(tableDeck, playerArray,deck)
 		playerNum = gets.chomp.to_i
 		playerNum=playerNum-1
 	end
+	#get valid input
 	tableRange=0...tableDeck.size
 	puts "Ok #{playerArray[playerNum].name}, now enter the cards. One card per line!"
 	card1 = gets.chomp.to_i
@@ -36,12 +38,15 @@ def takeATurn(tableDeck, playerArray,deck)
 		puts ""
 	end
 	if !checkSet(tableDeck, card1, card2, card3)
+		#if the card is not a set, take appropriate action
 		system "clear"
 		puts "\n\n"
 		puts "That actually wasn't a set! #{playerArray[playerNum].name} loses one point!"
 		playerArray[playerNum].losePoint
 		playerNum=-1
+		#playerNum is used as a flag. It is set as -1 if the entered cards do not make a set, or kept the same if the cards do make a set. Then, playerNum is returned.
 	else
+		#update the table if the cards entered make a set
 		c1=tableDeck[card1]
 		c2=tableDeck[card2]
 		c3=tableDeck[card3]
