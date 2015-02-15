@@ -28,7 +28,10 @@ class Player
 		print "Current score: #{@score}" 
 		print "Best score: #{@bestScore}\n"
 	end
-
+=begin
+	getter and setter methods for player name, score and type.
+	never implemented a cpu player, so type isnt useful.
+=end
 	attr_accessor :name
 	attr_accessor :score
 	attr_accessor :pType

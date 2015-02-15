@@ -20,7 +20,7 @@ class Card
 		puts @shade
 		puts @color
 	end
-	
+	#getter and setter methods for each property of a card.
 	attr_accessor :shape
 	attr_accessor :number
 	attr_accessor :shade

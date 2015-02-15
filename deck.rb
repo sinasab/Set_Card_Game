@@ -88,6 +88,7 @@ This includes the following:
 	end
 end
 
+####Simple test used to checkdealing and to check find set implementation####
 # system "clear"
 # testDeck=Deck.new
 # testDeck.makeDeck
