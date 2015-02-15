@@ -167,10 +167,12 @@ def keyPart(deck,tableCards,playerArray)
 			end
 		#case when player asks for a hint.
 		elsif input=="h"
-			puts "There is a set made up of the following cards: #{findSets(tableCards)[0]}\n\n"
+
+			a,b = findSets(tableCards)[0]
+			puts "There is a set made up of the following cards: #{a},#{b},?\n\n"
 			system "clear"
 			puts "\n\n"
-			puts "There is a set made up of the following cards: #{findSets(tableCards)[0]}\n\n"
+			puts "There is a set made up of the following cards: #{a},#{b},?\n\n"
 		# case for quitting th game, outputs scores and winner
 		elsif input=="q"
 			printScore(playerArray)
