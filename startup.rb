@@ -17,19 +17,19 @@ def takeATurn(tableDeck, playerArray,deck)
 	end
 	puts "Ok #{playerArray[playerNum].name}, now enter the cards. One card per line!"
 	card1 = gets.chomp.to_i
-	while card1 > tableDeck.length || card1<0
+	while (card1 > tableDeck.length-1) || (card1<0)
 		puts "Enter a valid card number!"
 		card1 = gets.chomp.to_i
 		puts ""
 	end
 	card2 = gets.chomp.to_i
-	while card2 > tableDeck.length || card2 == card1 || card2<0
+	while (card2 > tableDeck.length-1)|| (card2 == card1) || (card2<0)
 		puts "Enter a valid card number!"
 		card2 = gets.chomp.to_i
 		puts ""
 	end
 	card3 = gets.chomp.to_i
-	while card3 > tableDeck.length || card3 == card2 || card3 == card1 ||card3<0
+	while (card3 > tableDeck.length-1) || (card3 == card2) || (card3 == card1) ||(card3<0)
 		puts "Enter a valid card number!"
 		card3 = gets.chomp.to_i
 		puts ""
@@ -120,7 +120,7 @@ def findWinner(playerArray)
 		end
 	end
 	contender = winners.pop
-	if (highest.score > contender.score)
+	if ((highest.score > contender.score) || playerArray.size ==1)
 		puts "*****The winner is #{highest.name} with #{highest.score} points!!*****"
 	else
 		puts "*****There is a tie!*****"
