@@ -1,8 +1,8 @@
 require_relative '../card'
 require_relative '../deck'
-require_relative '../findSet'
 require_relative '../checkSet'
 require_relative '../printCards'
+require_relative '../findSet'
 
 =begin
 	
@@ -12,9 +12,25 @@ along with the print card. also going to test the findSet method.
 testDeck = Deck.new
 testDeck.makeDeck
 testDeck.shuffleDeck!
-testDeck.dealCards
+tableCards = testDeck.dealCards
+printCards(tableCards)
 
-puts "Enter the card numbers you think are a set:"
+#returns an array of possible sets in cards dealt
+sets = Array.new(findSets(tableCards))
+puts "hint: #{sets}"#displays a set from current cards
+puts "Enter the card numbers you think are a set(# # #):"
 choice = gets.split(' ')
 
-puts choice
+isSet = checkSet(tableCards,choice[0].to_i,choice[1].to_i,choice[2].to_i)
+puts "Were those cards a set? : #{isSet}"
+
+#If a set is found, cards will be replaced
+if(isSet) then
+	tableCards[choice[0].to_i]=testDeck.dealCard!
+	tableCards[choice[1].to_i]=testDeck.dealCard!
+	tableCards[choice[2].to_i]=testDeck.dealCard!
+	printCards(tableCards)
+else
+	printCards(tableCards)
+end
+
