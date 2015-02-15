@@ -80,6 +80,11 @@ def printWelcome
                                                    '
 end
 
+=begin	
+@param: playerArray: Array of current players
+
+	This method displays the players current scores.
+=end
 def printScore(playerArray)
 	puts "Scoreboard: "
 	for i in 0...playerArray.size
@@ -87,6 +92,31 @@ def printScore(playerArray)
 	end
 end
 
+=begin	
+@param: playerArray: Array of current players
+
+This method finds the player with the highest score total and 
+displays the name as the winner of the game
+=end
+def findWinner(playerArray)
+	winner = playerArray[0]
+	for i in 0..playerArray.size-1
+		if(playerArray[i].score > winner.score)
+			winner = playerArray[i]
+		end
+	end
+	puts "*****The winner is #{winner.name} with #{winner.score} points!!*****"
+end
+
+=begin
+	@param: deck - card deck for the game.
+			tableCards - current cards visible to players
+			playerArray - list of players
+
+	This method is the central function for control of the game.
+	It allows players to call for a set, enter the cards, ask for a hint,
+	or quit the game.	
+=end
 def keyPart(deck,tableCards,playerArray)
 	while deck.deckSize>0 && deck.deckSize<81
 		printCards(tableCards)
@@ -97,6 +127,7 @@ def keyPart(deck,tableCards,playerArray)
 			puts "Enter a valid input!"
 			input = gets.chomp.downcase
 		end
+		#case where player wants to enter a possible set.
 		if input=="s"
 			playerNum=takeATurn(tableCards, playerArray,deck)
 			if playerNum >=0
@@ -109,12 +140,16 @@ def keyPart(deck,tableCards,playerArray)
 			else
 				keyPart(deck,tableCards,playerArray)
 			end
+		#case when player asks for a hint.
 		elsif input=="h"
 			puts "There is a set made up of the following cards: #{findSets(tableCards)[0]}\n\n"
 			system "clear"
 			puts "\n\n"
 			puts "There is a set made up of the following cards: #{findSets(tableCards)[0]}\n\n"
-		elsif input=="q"		
+		# case for quitting th game, outputs scores and winner
+		elsif input=="q"
+			printScore(playerArray)
+			findWinner(playerArray)		
 			puts "Thanks for playing. Goodbye!"
 			exit
 		end
@@ -131,6 +166,7 @@ while playerNum <= 0
 	playerNum = gets.chomp.to_i
 end
 
+#create list of players
 playerArray = Array.new(playerNum){Player.new}
 
 i=1
@@ -143,10 +179,17 @@ while i < (playerNum+1)
 	i=i+1
 end
 
-puts "\nGreat! Set will deal you 12 cards, if a player finds a set, they should type an \"S\" and press enter, and then enter their player number and press enter. Then type in the first card in the set and hit enter, and repeat for the other 2 cards in the set. If the cards you identify make a set, they will be removed and replaced, and you will gain a point! Keep going until you run out of cards in the deck! Ready to play? [Y/N]"
+#Rules of the game
+puts "\nGreat! Set will deal you 12 cards, if a player finds a set, they should type 
+an \"S\" and press enter, and then enter their player number and press enter. Then type 
+in the first card in the set and hit enter, and repeat for the other 2 cards in the set. 
+If the cards you identify make a set, they will be removed and replaced, and you will gain
+a point! Keep going until you run out of cards in the deck! 
+Ready to play? [Y/N]"
 
 playCheck = gets.chomp.downcase
 
+#Simple check to see if player is ready to continue
 while playCheck != 'y'
 	puts "Enter [Y] when you're ready!"
 	playCheck = gets.chomp.downcase
@@ -159,8 +202,12 @@ deck.makeDeck
 deck.shuffleDeck!
 tableCards = deck.dealCards
 
-#card1 = 0
-#card2 = 0
-#card3 = 0
+
 puts "\n\n"
 keyPart(deck,tableCards,playerArray)
+
+#then the deck is empty, display results and winner
+if(deck.deckSize == 0)
+	printScore(playerArray)
+	findWinner(playerArray)
+end
