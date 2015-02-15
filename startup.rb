@@ -15,21 +15,22 @@ def takeATurn(tableDeck, playerArray,deck)
 		playerNum = gets.chomp.to_i
 		playerNum=playerNum-1
 	end
+	tableRange=0...tableDeck.size
 	puts "Ok #{playerArray[playerNum].name}, now enter the cards. One card per line!"
 	card1 = gets.chomp.to_i
-	while (card1 > tableDeck.length-1) || (card1<0)
+	while !(tableRange===card1)
 		puts "Enter a valid card number!"
 		card1 = gets.chomp.to_i
 		puts ""
 	end
 	card2 = gets.chomp.to_i
-	while (card2 > tableDeck.length-1)|| (card2 == card1) || (card2<0)
+	while !(tableRange===card2) || (card2 == card1)
 		puts "Enter a valid card number!"
 		card2 = gets.chomp.to_i
 		puts ""
 	end
 	card3 = gets.chomp.to_i
-	while (card3 > tableDeck.length-1) || (card3 == card2) || (card3 == card1) ||(card3<0)
+	while !(tableRange===card3) || (card3 == card2) || (card3 == card1)
 		puts "Enter a valid card number!"
 		card3 = gets.chomp.to_i
 		puts ""
