@@ -10,7 +10,7 @@ def findSets(shownCards)
 		for j in i+1...shownCards.size-1
 			for k in j+2...shownCards.size
 				if checkSet(shownCards,i,j,k)
-					sets.push([i,j,k])
+					sets.push([i+1,j+1,k+1])
 				end
 			end
 		end
