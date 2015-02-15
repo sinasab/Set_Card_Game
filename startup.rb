@@ -58,6 +58,7 @@ end
 	Dr. Shareef approved the use of this.
 =end
 def printWelcome 
+	system "clear"
 	puts '
  __          ________ _      _____ ____  __  __ ______ 
  \ \        / |  ____| |    / ____/ __ \|  \/  |  ____|
