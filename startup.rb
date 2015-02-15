@@ -19,22 +19,22 @@ def takeATurn(tableDeck, playerArray,deck)
 	#get valid input
 	tableRange=0...tableDeck.size
 	puts "Ok #{playerArray[playerNum].name}, now enter the cards. One card per line!"
-	card1 = gets.chomp.to_i
+	card1 = (gets.chomp.to_i - 1)
 	while !(tableRange===card1)
 		puts "Enter a valid card number!"
-		card1 = gets.chomp.to_i
+		card1 = (gets.chomp.to_i - 1)
 		puts ""
 	end
-	card2 = gets.chomp.to_i
+	card2 = (gets.chomp.to_i - 1)
 	while !(tableRange===card2) || (card2 == card1)
 		puts "Enter a valid card number!"
-		card2 = gets.chomp.to_i
+		card2 = (gets.chomp.to_i - 1)
 		puts ""
 	end
-	card3 = gets.chomp.to_i
+	card3 = (gets.chomp.to_i - 1)
 	while !(tableRange===card3) || (card3 == card2) || (card3 == card1)
 		puts "Enter a valid card number!"
-		card3 = gets.chomp.to_i
+		card3 = (gets.chomp.to_i - 1)
 		puts ""
 	end
 	if !checkSet(tableDeck, card1, card2, card3)
