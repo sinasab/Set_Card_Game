@@ -51,9 +51,12 @@ def takeATurn(tableDeck, playerArray,deck)
 	end
 	return playerNum
 end
-
+=begin
+	Updates the table cards if cards delt after a set result
+	in no set being available. They are replaced.
+=end
 def updateTable(tableCards, deck)
-	while deck.size!=0 && (tableCards.size<12 || findSets(tableCards).size==0)
+	while deck.deckSize!=0 && (tableCards.size<12 || findSets(tableCards).size==0)
 		tableCards.push(deck.dealCard!)
 		tableCards.push(deck.dealCard!)
 		tableCards.push(deck.dealCard!)
@@ -106,20 +109,21 @@ This method finds the player with the highest score total and
 displays the name as the winner of the game
 =end
 def findWinner(playerArray)
-	winner = playerArray[0]
+	highest = playerArray[0]
 	winners = Array.new {Player.new}
 	for i in 0..playerArray.size-1
-		if(playerArray[i].score > winner.score)
-			winner = playerArray[i]
-		elsif (playerArray[i].score == winner.score)
-			winners.push(winner)
+		if(playerArray[i].score > highest.score)
+			highest= playerArray[i]
+		elsif (playerArray[i].score == highest.score)
+			winners.push(highest)
 			winners.push(playerArray[i])
 		end
 	end
-	if(winner.score > winners[0].score)
-		puts "*****The winner is #{winner.name} with #{winner.score} points!!*****"
+	contender = winners.pop
+	if (highest.score > contender.score)
+		puts "*****The winner is #{highest.name} with #{highest.score} points!!*****"
 	else
-		puts "There is a tie!"
+		puts "*****There is a tie!*****"
 	end
 end
 
@@ -133,7 +137,7 @@ end
 	or quit the game.	
 =end
 def keyPart(deck,tableCards,playerArray)
-	while deck.deckSize>0 && deck.deckSize<81 && findSets(tableDeck).size !=0
+	while deck.deckSize>0 && deck.deckSize<81 && findSets(tableCards).size !=0
 		printCards(tableCards)
 		printScore(playerArray)
 		puts "Enter S to enter a set, H for a hint, or Q to quit!\n"
@@ -170,6 +174,8 @@ def keyPart(deck,tableCards,playerArray)
 		end
 	end
 	puts "The deck ran out of cards, or there are no more sets! Thanks for Playing!"
+	printScore(playerArray)
+	findWinner(playerArray)
 	exit
 end
 
