@@ -100,12 +100,20 @@ displays the name as the winner of the game
 =end
 def findWinner(playerArray)
 	winner = playerArray[0]
+	winners = Array.new {Player.new}
 	for i in 0..playerArray.size-1
 		if(playerArray[i].score > winner.score)
 			winner = playerArray[i]
+		elsif (playerArray[i].score == winner.score)
+			winners.push(winner)
+			winners.push(playerArray[i])
 		end
 	end
-	puts "*****The winner is #{winner.name} with #{winner.score} points!!*****"
+	if(winner.score > winners[0].score)
+		puts "*****The winner is #{winner.name} with #{winner.score} points!!*****"
+	else
+		puts "There is a tie!"
+	end
 end
 
 =begin
