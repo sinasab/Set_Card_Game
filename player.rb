@@ -43,7 +43,7 @@ class Player
 
 	#Used if we would like to penalize player for a wrong set
 	def losePoint
-		@score -= 1
+		@score =@score-1
 	end
 
 	#potentially add methods to keep track of user's time down here

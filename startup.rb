@@ -5,9 +5,6 @@ require_relative './player'
 	@param:
 		tableDeck: The current cards that are on the table
 		playerArray: The current players that are playing the game.
-
-
-	
 =end
 def takeATurn(tableDeck, playerArray,deck)
 
@@ -28,7 +25,6 @@ def takeATurn(tableDeck, playerArray,deck)
 		card1 = gets.chomp.to_i
 		puts ""
 	end
-
 	card2 = gets.chomp.to_i
 	while card2 > tableDeck.length || card2 == card1 || card2<0
 		puts "Enter a valid card number!"
@@ -43,8 +39,13 @@ def takeATurn(tableDeck, playerArray,deck)
 		puts ""
 	end
 	if !checkSet(tableDeck, card1, card2, card3)
+		system "clear"
+		puts "\n\n"
+		puts "That actually wasn't a set! #{playerArray[playerNum].name} loses one point!"
+		playerArray[playerNum].losePoint
 		playerNum=-1
 	else
+		#todo
 		tableDeck[card1]=deck.dealCard!
 		tableDeck[card2]=deck.dealCard!
 		tableDeck[card3]=deck.dealCard!
@@ -58,6 +59,7 @@ end
 	Dr. Shareef approved the use of this.
 =end
 def printWelcome 
+	system "clear"
 	puts '
  __          ________ _      _____ ____  __  __ ______ 
  \ \        / |  ____| |    / ____/ __ \|  \/  |  ____|
@@ -78,37 +80,40 @@ def printWelcome
                                                    '
 end
 
+def printScore(playerArray)
+	puts "Scoreboard: "
+	for i in 0...playerArray.size
+	puts "#{i+1}. #{playerArray[i].name}, score: #{playerArray[i].score}"
+	end
+end
 
 def keyPart(deck,tableCards,playerArray)
 	while deck.deckSize>0 && deck.deckSize<81
 		printCards(tableCards)
-		puts "Current players are: "
-		for i in 0...playerArray.size
-		puts "#{i+1}. #{playerArray[i].name}, score: #{playerArray[i].score}"
-		end
-
+		printScore(playerArray)
 		puts "Enter S to enter a set, H for a hint, or Q to quit!\n"
 		input=gets.chomp.downcase
-
 		while(!["s","h","q"].include? input)
-			"Enter a valid input!"
+			puts "Enter a valid input!"
 			input = gets.chomp.downcase
 		end
-
 		if input=="s"
 			playerNum=takeATurn(tableCards, playerArray,deck)
 			if playerNum >=0
 				playerArray[playerNum].scorePoint
-				system ("clear")
+				system "clear"
+				puts "\n\n"
+				puts "Nice job! That makes a set!"
 				puts "#{playerArray[playerNum].name} has scored a point!\n\n"
 				keyPart(deck,tableCards,playerArray)
 			else
-				system ("clear")
-				puts "Those cards actually don't make a set.\n\n"
 				keyPart(deck,tableCards,playerArray)
 			end
 		elsif input=="h"
-				puts "There is a set made up of the following cards: #{findSets(tableCards)[0]}\n\n"
+			puts "There is a set made up of the following cards: #{findSets(tableCards)[0]}\n\n"
+			system "clear"
+			puts "\n\n"
+			puts "There is a set made up of the following cards: #{findSets(tableCards)[0]}\n\n"
 		elsif input=="q"		
 			puts "Thanks for playing. Goodbye!"
 			exit
@@ -138,11 +143,7 @@ while i < (playerNum+1)
 	i=i+1
 end
 
-puts "\nGreat! Set will deal you 12 cards, if you find a set, type in your player number and hit enter. 
-Then type in the first card in the set and hit enter, and repeat for the other 2 cards in the set. 
-If the cards you identify make a set, they will be removed and replaced, and you will gain a point! Keep 
-going until you run out of cards in the deck! 
-Ready to play? [Y/N]"
+puts "\nGreat! Set will deal you 12 cards, if a player finds a set, they should type an \"S\" and press enter, and then enter their player number and press enter. Then type in the first card in the set and hit enter, and repeat for the other 2 cards in the set. If the cards you identify make a set, they will be removed and replaced, and you will gain a point! Keep going until you run out of cards in the deck! Ready to play? [Y/N]"
 
 playCheck = gets.chomp.downcase
 
@@ -150,15 +151,16 @@ while playCheck != 'y'
 	puts "Enter [Y] when you're ready!"
 	playCheck = gets.chomp.downcase
 end
+system "clear"
 
 #Create a new deck and shuffle it
 deck = Deck.new
 deck.makeDeck
 deck.shuffleDeck!
 tableCards = deck.dealCards
-#printCards(tableCards)
+
 #card1 = 0
 #card2 = 0
 #card3 = 0
-
+puts "\n\n"
 keyPart(deck,tableCards,playerArray)
