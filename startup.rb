@@ -95,7 +95,7 @@ def printScore(playerArray)
 end
 
 def keyPart(deck,tableCards,playerArray)
-	while deck.deckSize>0 && deck.deckSize<81 && findSets(tableDeck).size !=0
+	while deck.deckSize>0 && deck.deckSize<81 && findSets(tableCards).size !=0
 		printCards(tableCards)
 		printScore(playerArray)
 		puts "Enter S to enter a set, H for a hint, or Q to quit!\n"
