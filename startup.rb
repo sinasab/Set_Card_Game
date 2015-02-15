@@ -7,17 +7,14 @@ require_relative './player'
 		playerArray: The current players that are playing the game.
 =end
 def takeATurn(tableDeck, playerArray,deck)
-
 	puts "Enter your player number:"
 	playerNum = gets.chomp.to_i
 	playerNum=playerNum-1
-
 	while playerNum >= playerArray.length || playerNum <0 
 		puts "Enter a valid player number!"
 		playerNum = gets.chomp.to_i
 		playerNum=playerNum-1
 	end
-
 	puts "Ok #{playerArray[playerNum].name}, now enter the cards. One card per line!"
 	card1 = gets.chomp.to_i
 	while card1 > tableDeck.length || card1<0
@@ -31,7 +28,6 @@ def takeATurn(tableDeck, playerArray,deck)
 		card2 = gets.chomp.to_i
 		puts ""
 	end
-
 	card3 = gets.chomp.to_i
 	while card3 > tableDeck.length || card3 == card2 || card3 == card1 ||card3<0
 		puts "Enter a valid card number!"
@@ -45,12 +41,23 @@ def takeATurn(tableDeck, playerArray,deck)
 		playerArray[playerNum].losePoint
 		playerNum=-1
 	else
-		#todo
-		tableDeck[card1]=deck.dealCard!
-		tableDeck[card2]=deck.dealCard!
-		tableDeck[card3]=deck.dealCard!
+		c1=tableDeck[card1]
+		c2=tableDeck[card2]
+		c3=tableDeck[card3]
+		tableDeck.delete(c1)
+		tableDeck.delete(c2)
+		tableDeck.delete(c3)
+		updateTable(tableDeck, deck)
 	end
 	return playerNum
+end
+
+def updateTable(tableCards, deck)
+	while deck.size!=0 && (tableCards.size<12 || findSets(tableCards).size==0)
+		tableCards.push(deck.dealCard!)
+		tableCards.push(deck.dealCard!)
+		tableCards.push(deck.dealCard!)
+	end
 end
 
 =begin
