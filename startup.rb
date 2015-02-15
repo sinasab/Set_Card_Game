@@ -108,7 +108,7 @@ def keyPart(deck,tableCards,playerArray)
 				keyPart(deck,tableCards,playerArray)
 			end
 		elsif input=="h"
-			puts "There is a set made up of the following cards: #{findSets(tableCards)[0]}\n\n"
+				puts "There is a set made up of the following cards: #{findSets(tableCards)[0]}\n\n"
 		elsif input=="q"		
 			puts "Thanks for playing. Goodbye!"
 			exit

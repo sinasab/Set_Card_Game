@@ -33,6 +33,7 @@ def printWelcome
                                                    '
 end
 
+#This method simply prints the rules for the game of SET!
 def printRules
 	puts "*This is the game of SET! Twelve cards are layed out on the table, 
 usually in three rows with four columns.When a player determines a set he 
@@ -47,6 +48,7 @@ set, they player gets a bus. If it turns out not to be a set, the player loses o
 The dealer then replaces the three cards.\n\n"
 end
 
+#This functions asks user for number of players in game and returns an array of players.
 def getPlayers 
 	puts "How many people are playing? Please enter an integer greater than 0! \n"
 
@@ -66,53 +68,88 @@ def getPlayers
 	return players
 end
 
+#function displays the players current scores
 def playerScores( playerList)
 	for i in 0..playerList.size-1
-		puts "#{playerList[i].name} current score is:#{playerList[i].score}"
+		puts "#{playerList[i].name}'s current score is:#{playerList[i].score}"
 	end
 end
 
 =begin
 	@param:
 		playerList- An array containing the players
-		tableCards - An array of cards that are dealt
+	This method is used for finding the winner of the game.
+=end
+def findWinner(playerList)
+	for i in 0..playerList.size-1
+		winner =playerList[0]
+		if(playerList[i].score > winner.score)
+			winner = playerList[i]
+		end
+	end
 
+	puts "*****The winner is #{winner.name} with #{winner.score} points!!*****"
+end
+=begin
+	@params:
+		playerList:Array of players in the game
+	@
+This method allows user to pick a set find a hint or quit.
 	
 =end
 def pickSet (playerList, tableCards,cardDeck)
 	#set to one as default for single player.
-	playerIndex =0
-	loop do
-		puts " Enter your player number: "
-		playerIndex = gets.to_i
-		playerIndex -=1
-		break if((playerIndex < playerList.length))
-	end
 
- 	card1, card2, card3 = 0,0,0
-	loop do
-		puts "#{playerList[playerIndex].name},enter the card numbers(0-#{tableCards.length-1}) that you think are a set. One per Line: "
-		card1 =gets.to_i
-		card2 =gets.to_i
-		card3 =gets.to_i
-		break if ((card1 != card2) and (card1 != card3) and (card2 != card3) and (card1 <= tableCards.size) and (card2 <= tableCards.size) and (card3 <= tableCards.size) )
-	end	
+	puts "Enter S to pick a Set, H for a hint, or Q for to quit the game: "
+	input= gets.chomp.downcase
 
-	isSet = checkSet(tableCards,(card1),(card2),(card3))
+	case input
+		#case for picking a set.
+	when "s"	
+		playerIndex =0
+		loop do
+			puts " Enter your player number: "
+			playerIndex = gets.to_i
+			playerIndex -=1
+			break if((playerIndex < playerList.length))
+		end
 
-	if(isSet) then
-		puts "Nice Job! You found a SET!"
-		tableCards[card1]=cardDeck.dealCard!
-		tableCards[card2]=cardDeck.dealCard!
-		tableCards[card3]=cardDeck.dealCard!
-		printCards(tableCards)
-		playerList[playerIndex].scorePoint
-		playerScores(playerList)
-	else
-		puts "That is not a SET! You lose a point!"
-		printCards(tableCards)
-		playerList[playerIndex].losePoint
-		playerScores(playerList)
+ 		card1, card2, card3 = 0,0,0
+		loop do
+			puts "#{playerList[playerIndex].name},enter the card numbers(0-#{tableCards.length-1}) that you think are a set. One per Line: "
+			card1 =gets.to_i
+			card2 =gets.to_i
+			card3 =gets.to_i
+			break if ((card1 != card2) and (card1 != card3) and (card2 != card3) and (card1 <= tableCards.size) and (card2 <= tableCards.size) and (card3 <= tableCards.size) )
+		end	
+
+		isSet = checkSet(tableCards,(card1),(card2),(card3))
+
+		if(isSet) then
+			tableCards[card1]=cardDeck.dealCard!
+			tableCards[card2]=cardDeck.dealCard!
+			tableCards[card3]=cardDeck.dealCard!
+			playerList[playerIndex].scorePoint
+			system ("clear")
+			puts "Nice Job! You found a SET!"
+			printCards(tableCards)
+			playerScores(playerList)
+		else
+			playerList[playerIndex].losePoint
+			system ("clear")
+			puts "That is not a SET! You lose a point!"
+			printCards(tableCards)
+			playerScores(playerList)
+		end
+	when "h" #case for displaying a hint
+		puts "There is a set made up of the following cards: #{findSets(tableCards)[0]}\n\n"	
+	when "q" #case to quit the game
+		puts "Thanks for Playing! Goodbye!"
+		findWinner(playerList)
+		exit
+	else #default case
+		puts "Invalid Input! Enter S to pick a Set, H for a hint, or Q for to quit the game: "
+		input = gets.chomp.downcase
 	end
 end
 
