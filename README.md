@@ -2,7 +2,7 @@
 ## The Game of Set (Ruby 1)
 
 ## Instructions
-Download all the files, then run "ruby startup.rb" in the project directory. 
+Download all the files, then run "ruby startup.rb" in the terminal from the project directory.
 
 ## Roles
 * Overall Project Manager: Sina Sabet
