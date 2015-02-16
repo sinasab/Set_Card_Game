@@ -1,5 +1,8 @@
 require_relative './card.rb'
 
+#Author: Zach Spieler.
+#Acknowledgements: Roman made changes so that cardDeck was an array instead of instance of the deck class
+
 =begin
 param: cardDeck
 	A deck of cards in array form that contains all cards
