@@ -14,8 +14,7 @@ Download all the files, then run "ruby startup.rb" in the terminal from the proj
 Please list who did what for each part of the project, and if anyone [pair programmed](http://en.wikipedia.org/wiki/Pair_programming) in this section.
 
 * Roman: Created class for card elements. Created Player class. Created Deck class which contains function for creating deck of cards (Sina helped
-         getting it to work properly).  Added printWelcome, printScore functions to final version of the game. Also helped organized into functions for
-         readability.  Added comments to classes, as well as parts of the project.
+         getting it to work properly). Wrote the dealTest and deckTest tests. Added printWelcome, printScore functions to final version of the game. Also helped organized into functions for readability.  Added comments to classes, as well as parts of the project.
 
 * Sina: Worked on function to deal cards which was eventually implemented into the deck class, updated the classes to use "attr_accessor" like we were taught in class, wrote "printCards.rb", which prints cards to the console, either using ascii art to draw the cards or just with the card's info line by line. Worked on startup.rb and updated findSets to return an array of all the sets rather than just a boolean of whether or not sets existed.
 

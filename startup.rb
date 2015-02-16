@@ -5,7 +5,10 @@ require_relative './player'
 	@param:
 		tableDeck: The current cards that are on the table
 		playerArray: The current players that are playing the game.
-	function that allows player to enter their proposed set. Checks player's input to ensure it is valid and then checks to see if the selected cards make a set. Takes action accordingly.
+		deck: deck used for game
+	function that allows player to enter their proposed set. Checks player's 
+	input to ensure it is valid and then checks to see if the selected cards 
+	make a set. Takes action accordingly.
 =end
 def takeATurn(tableDeck, playerArray,deck)
 	puts "Enter your player number:"
