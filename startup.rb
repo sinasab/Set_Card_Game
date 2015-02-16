@@ -9,6 +9,9 @@ require_relative './player'
 	function that allows player to enter their proposed set. Checks player's 
 	input to ensure it is valid and then checks to see if the selected cards 
 	make a set. Takes action accordingly.
+
+	Main Author: Tom
+	later contributing authors: Sina.
 =end
 def takeATurn(tableDeck, playerArray,deck)
 	puts "Enter your player number:"
@@ -63,6 +66,8 @@ end
 =begin
 	Updates the table cards if cards delt after a set result
 	in no set being available. They are replaced.
+
+	Written by: Sina
 =end
 def updateTable(tableCards, deck)
 	while deck.deckSize!=0 && (tableCards.size<12 || findSets(tableCards).size==0)
@@ -105,6 +110,8 @@ end
 @param: playerArray: Array of current players
 
 	This method displays the players current scores.
+
+	written by: Sina
 =end
 def printScore(playerArray)
 	puts "Scoreboard: "
@@ -148,6 +155,9 @@ end
 	This method is the central function for control of the game.
 	It allows players to call for a set, enter the cards, ask for a hint,
 	or quit the game.	
+
+	Staring author: Tom,
+	Contributing authos were: Sina, Roman, Zach
 =end
 def keyPart(deck,tableCards,playerArray)
 	while deck.deckSize>0 && deck.deckSize<81 && findSets(tableCards).size !=0
@@ -219,7 +229,7 @@ while i < (playerNum+1)
 	i=i+1
 end
 
-#Rules of the game
+#Rules of the game, Writen by Tom
 puts "\nGreat! Set will deal you 12 cards, if a player finds a set, they should type 
 an \"S\" and press enter, and then enter their player number and press enter. Then type 
 in the first card in the set and hit enter, and repeat for the other 2 cards in the set. 
