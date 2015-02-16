@@ -3,6 +3,14 @@ require_relative './card'
 require_relative './printCards'
 require_relative './findSet'
 
+=begin
+	
+This class is used to represent the playing deck of 81
+cards used to play the game
+Authored by: Roman (Sina helped tweaking dealCards)
+
+=end
+
 class Deck
 #Constructor
 	def initialize
@@ -74,6 +82,8 @@ This includes the following:
     -If there is not a set, keep adding 3 cards from the deck until there is a set
     -Then show those cards to the user in the console
     -Then return array of cards currently in play
+
+    Written By: Sina
 =end
 
 	def dealCards

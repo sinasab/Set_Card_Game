@@ -1,8 +1,11 @@
 require_relative '../card.rb'
 require_relative '../deck.rb'
+=begin
+This test is used to show that the makeDeck function creates a deck of 81 unique cards.
+Then a card is changed to create a duplicate. Then through two loops each card is compared.
 
-#This test is used to show that the makeDeck function creates a deck of 81 unique cards
-
+Written by: Roman
+=end
 test = Deck.new
 test.makeDeck
 
@@ -35,7 +38,8 @@ test.pickACard(30).display
 test.pickACard(30).display
 test.pickACard(30).color = "green"
 =begin
-This loop tests that an altered deck will have a duplicate.
+This loop tests that an altered deck will have a duplicate. It cycles through
+and compares one card to all the next ones.
 =end
 while i < test.deckSize
 	current = Card.new

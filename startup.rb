@@ -76,6 +76,8 @@ end
 	This method prints the title.  The ASCII art is from a website.
 	http://patorjk.com/software/taag/#p=display&f=Graffiti&t=Type%20Something
 	Dr. Shareef approved the use of this.
+
+	Written by: Roman
 =end
 def printWelcome 
 	system "clear"
@@ -116,6 +118,8 @@ end
 
 This method finds the player with the highest score total and 
 displays the name as the winner of the game
+
+Written by: Roman
 =end
 def findWinner(playerArray)
 	highest = playerArray[0]

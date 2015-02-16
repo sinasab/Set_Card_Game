@@ -2,7 +2,8 @@
 =begin
 	Class Card for the game of Set.  Has the properties of shape
 	number,color and shade.
-	
+	Authored by: Roman
+	Updated attr_accessor by Sina
 =end
 class Card
 	def initialize()
