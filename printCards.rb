@@ -3,6 +3,8 @@ function printCards
 param: cards[]
     array containing the cards to be printed
 "Prettily" prints all the cards passed to it in the parameter to the console, 3 cards per line
+
+Written by: Sina
 =end
  def printCards(cards)
   i=0

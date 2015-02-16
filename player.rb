@@ -6,6 +6,8 @@ score
 pType - human/computer if we add this functionality.
 bestScore - highest score during current session.
 bestTime - fastest time if we add this.
+
+Written by: Roman
 =end
 class Player
 
@@ -31,6 +33,8 @@ class Player
 =begin
 	getter and setter methods for player name, score and type.
 	never implemented a cpu player, so type isnt useful.
+
+	Getter/Setters done by Sina
 =end
 	attr_accessor :name
 	attr_accessor :score
