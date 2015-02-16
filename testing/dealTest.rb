@@ -8,6 +8,8 @@ require_relative '../findSet'
 	
 This test is simply for testing to see if the dealCards method works,
 along with the print card. also going to test the findSet method.
+
+Written by: Roman and Sina
 =end
 testDeck = Deck.new
 testDeck.makeDeck
