@@ -1,5 +1,13 @@
 require_relative './card.rb'
 
+=begin
+param: cardDeck
+	A deck of cards in array form that contains all cards
+param x,y,z
+	Contains the 3 indices of the cards being checked.
+
+	returns 1 if the colors are all the same or all different, 0 otherwise
+=end
 def checkSetColor(cardDeck, x, y, z)
 	colorCheck = 0;
 	if (cardDeck[x].color == cardDeck[y].color and cardDeck[z].color == cardDeck[y].color) or ((cardDeck[x].color != cardDeck[y].color) and (cardDeck[x].color != cardDeck[z].color) and (cardDeck[y].color != cardDeck[z].color))
@@ -9,6 +17,14 @@ def checkSetColor(cardDeck, x, y, z)
 
 end
 
+=begin
+param: cardDeck
+	A deck of cards in array form that contains all cards
+param x,y,z
+	Contains the 3 indices of the cards being checked.
+
+	returns 1 if the shapes are all the same or all different, 0 otherwise
+=end
 def checkSetShape(cardDeck, x, y, z)
 	shapeCheck = 0;
 	if (cardDeck[x].shape == cardDeck[y].shape and cardDeck[z].shape == cardDeck[y].shape) or ((cardDeck[x].shape != cardDeck[y].shape) and (cardDeck[x].shape != cardDeck[z].shape) and (cardDeck[y].shape != cardDeck[z].shape))
@@ -18,6 +34,15 @@ def checkSetShape(cardDeck, x, y, z)
 
 end
 
+
+=begin
+param: cardDeck
+	A deck of cards in array form that contains all cards
+param x,y,z
+	Contains the 3 indices of the cards being checked.
+
+	returns 1 if the numbers are all the same or all different, 0 otherwise
+=end
 def checkSetNumber(cardDeck, x, y, z)
 	numberCheck = 0;
 	if (cardDeck[x].number == cardDeck[y].number and cardDeck[z].number == cardDeck[y].number) or ((cardDeck[x].number != cardDeck[y].number) and (cardDeck[x].number != cardDeck[z].number) and (cardDeck[y].number != cardDeck[z].number))
@@ -26,6 +51,15 @@ def checkSetNumber(cardDeck, x, y, z)
 	return numberCheck
 end
 
+
+=begin
+param: cardDeck
+	A deck of cards in array form that contains all cards
+param x,y,z
+	Contains the 3 indices of the cards being checked.
+
+	returns 1 if the shades are all the same or all different, 0 otherwise
+=end
 def checkSetShade(cardDeck, x, y, z)
 	shadeCheck = 0;
 	if (cardDeck[x].shade == cardDeck[y].shade and cardDeck[z].shade == cardDeck[y].shade) or ((cardDeck[x].shade != cardDeck[y].shade) and (cardDeck[x].shade != cardDeck[z].shade) and (cardDeck[y].shade != cardDeck[z].shade))
