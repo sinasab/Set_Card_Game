@@ -20,7 +20,7 @@ Please list who did what for each part of the project, and if anyone [pair progr
 
 * Tom: Created outline for implementation of game in ruby, including a comprehensive list of possible functions, features, and tests to run, as well as potential bugs to be aware of. Created the first few iterations of the takeATurn function, as well as the original and first few iterations of the startup file and it's components. 
 
-* Steven: Updated tests.md
+* Steven: Created tests.md, wrote and executed tests for startup.rb, specifically takeATurn and keyPart methods.
 
 * Zach: Created functions for checking if 3 selected cards were in a set. One function for each aspect of the card (ie color, shape). Added function to call the 3 checkSets and return whether the 3 cards are a set. Made findSet to iterate through every possible combo of cards (Roman helped with the logic behind it). Tests for checkSet.rb (checkSetTest.rb). Test for findSet (testFindSet.rb). Helped overall with some of the ideas on how to implement rules of the game through communication with teammates. 
 
