@@ -1,6 +1,9 @@
  require_relative '../checkSet.rb'
 require_relative '../deck.rb'
 require_relative '../card.rb'
+
+#Author: Zach Spieler
+
 =begin
 	
 Test is used to test the chechSet function.  A new deck is created and cards
