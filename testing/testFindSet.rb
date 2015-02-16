@@ -26,25 +26,25 @@ puts "#{testCards[0].display}"
 puts "#{testCards[4].display}"
 puts "#{testCards[8].display}"
 
-checks [1,6,8]
+#checks [1,6,8]
 puts "Set 3"
 puts "#{testCards[0].display}"
 puts "#{testCards[5].display}"
 puts "#{testCards[7].display}"
 
-checks [2,4,9]
+#checks [2,4,9]
 puts "Set 4"
 puts "#{testCards[1].display}"
 puts "#{testCards[3].display}"
 puts "#{testCards[8].display}"
 
-checks [2,5,8]
+#checks [2,5,8]
 puts "Set 5"
 puts "#{testCards[1].display}"
 puts "#{testCards[4].display}"
 puts "#{testCards[7].display}"
 
-checks [3,4,8]
+#checks [3,4,8]
 puts "Set 6"
 puts "#{testCards[2].display}"
 puts "#{testCards[3].display}"
