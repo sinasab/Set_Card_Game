@@ -2,7 +2,7 @@
 ## The Game of Set (Ruby 1)
 
 ## Instructions
-Download all the files, then run "ruby startup.rb" in the terminal from the project directory.
+Download all the files, then run "ruby startup.rb" in the terminal from the project directory. Works best if terminal is full screen. 
 
 ## Roles
 * Overall Project Manager: Sina Sabet
@@ -22,7 +22,7 @@ Please list who did what for each part of the project, and if anyone [pair progr
 
 * Steven: 
 
-* Zach: Created functions for checking if 3 selected cards were in a set. One function for each aspect of the card (ie color, shape). Added function to call the 3 checkSets and return whether the 3 cards are a set. Made findSet to iterate through every possible combo of cards (Roman helped with the logic behind it). Tests for checkSet.rb
+* Zach: Created functions for checking if 3 selected cards were in a set. One function for each aspect of the card (ie color, shape). Added function to call the 3 checkSets and return whether the 3 cards are a set. Made findSet to iterate through every possible combo of cards (Roman helped with the logic behind it). Tests for checkSet.rb (checkSetTest.rb). Test for findSet (testFindSet.rb). Helped overall with some of the ideas on how to implement rules of the game through communication with teammates. 
 
 ## Testing
 Please put all testing materials (writeups code etc) in the `testing` dir.
