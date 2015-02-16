@@ -18,7 +18,7 @@ Please list who did what for each part of the project, and if anyone [pair progr
 
 * Sina: Worked on function to deal cards which was eventually implemented into the deck class, updated the classes to use "attr_accessor" like we were taught in class, wrote "printCards.rb", which prints cards to the console, either using ascii art to draw the cards or just with the card's info line by line. Worked on startup.rb and updated findSets to return an array of all the sets rather than just a boolean of whether or not sets existed. Helped fix some bugs in startup.rb. 
 
-* Tom:
+* Tom: Created outline for implementation of game in ruby, including a comprehensive list of possible functions, features, and tests to run, as well as potential bugs to be aware of. Created the first few iterations of the takeATurn function, as well as the original and first few iterations of the startup file and it's components. 
 
 * Steven: 
 
