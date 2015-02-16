@@ -1,6 +1,9 @@
 require_relative './card'
 require_relative './checkSet'
 
+#Author: Zach Spieler
+#Acknowledgements: Sina changed return to an array rather than one set
+
 =begin
 Takes as shownCards a parameter an array of cards and returns an array of triples that are indexes of cards that make sets. ie. if cards 1,3, and 4 were a set, and 5, 8, and 12 were a set, the function will return [[1,3,4],[1,8,12]].
 

@@ -3,6 +3,8 @@ require_relative '../card'
 require_relative '../checkSet'
 require_relative '../deck.rb'
 
+#Author: Zach Spieler
+
 testDeck = Deck.new
 testDeck.makeDeck
 testCards = Array.new(testDeck.dealCards)

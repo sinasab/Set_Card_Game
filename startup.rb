@@ -175,6 +175,8 @@ def keyPart(deck,tableCards,playerArray)
 		#case when player asks for a hint.
 		elsif input=="h"
 
+			#Zach Spieler changed hints to give 2 cards and ? rather than a complete set
+			#Zach Spieler suggested using system "clear" to keep page refreshed
 			a,b = findSets(tableCards)[0]
 			puts "There is a set made up of the following cards: #{a},#{b},?\n\n"
 			system "clear"
