@@ -163,6 +163,8 @@ def keyPart(deck,tableCards,playerArray)
 	while deck.deckSize>0 && deck.deckSize<81 && findSets(tableCards).size !=0
 		printCards(tableCards)
 		printScore(playerArray)
+		sets = Array.new(findSets(tableCards))
+		puts "hint: #{sets}"#displays a set from current cards
 		puts "Enter S to enter a set, H for a hint, or Q to quit!\n"
 		input=gets.chomp.downcase
 		while(!["s","h","q"].include? input)
